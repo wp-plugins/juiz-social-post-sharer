@@ -1,10 +1,10 @@
 === Juiz Social Post Sharer ===
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: social, twitter, google, facebook, post, share
+Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -47,10 +47,10 @@ This tool relies on third-party applications (API), so if you say "it's broken",
 **Please, use the support forum to tell me bugs encountered**
 
 
--------------------------
+–––––––––––––––––––––––––––––––––––
 
 Français
---
+––––––––––––
 
 Ajoutez des boutons après vos publications pour permettre aux visiteurs de partager votre contenu (inclus un mode sans JavaScript)
 
@@ -78,7 +78,7 @@ Langues disponibles :
 * Français
 * Anglais
 
-Prochaines mises à jour:
+Prochaines mises à jour :
 * Ajout du pseudo Twitter pour ajouter la mention "via" lors d'un partage
 * Ajout d'un compteur pour chaque réseau social
 * Des hooks seront disponibles pour les développeurs
@@ -120,6 +120,10 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 2. After a post
 
 == Changelog ==
+
+= 1.0.1 =
+* Performance enhancement (thank you <a href="http://profiles.wordpress.org/juliobox/">Julio</a>)
+* Some typos corrected
 
 = 1.0.0 =
 * The first beta version

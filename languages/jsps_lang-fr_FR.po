@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Juiz Social Post Sharer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-08 19:18+0100\n"
-"PO-Revision-Date: 2012-11-08 19:27+0100\n"
+"POT-Creation-Date: 2012-11-13 01:19+0100\n"
+"PO-Revision-Date: 2012-11-13 01:19+0100\n"
 "Last-Translator: Geoffrey <rikuasakura@hotmail.fr>\n"
 "Language-Team: Creativejuiz <support@creativejuiz.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,79 +15,80 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../juiz-social-post-sharer.php:89
+#: ../juiz-social-post-sharer.php:88
 msgid "Settings"
 msgstr "Réglages"
 
-#: ../juiz-social-post-sharer.php:105 ../juiz-social-post-sharer.php:106
+#: ../juiz-social-post-sharer.php:104 ../juiz-social-post-sharer.php:105
 msgid "Social Post Sharer"
 msgstr "Social Post Sharer"
 
-#: ../juiz-social-post-sharer.php:174
+#: ../juiz-social-post-sharer.php:172
 msgid "Main settings"
 msgstr "Réglages principaux"
 
-#: ../juiz-social-post-sharer.php:175
+#: ../juiz-social-post-sharer.php:173
 msgid "Choose a style to display"
 msgstr "Choisissez votre style"
 
-#: ../juiz-social-post-sharer.php:176
+#: ../juiz-social-post-sharer.php:174
 msgid "Display those following social networks:"
 msgstr "Afficher les réseaux sociaux suivants :"
 
-#: ../juiz-social-post-sharer.php:179
+#: ../juiz-social-post-sharer.php:177
 msgid "Advanced settings"
 msgstr "Réglages avancés"
 
-#: ../juiz-social-post-sharer.php:180
+#: ../juiz-social-post-sharer.php:178
 msgid "Display counter of sharing?"
 msgstr "Afficher un compteur de partage&nbsp;?"
 
-#: ../juiz-social-post-sharer.php:180
+#: ../juiz-social-post-sharer.php:178
 msgid "need JavaScript"
 msgstr "nécessite JavaScript"
 
-#: ../juiz-social-post-sharer.php:181
+#: ../juiz-social-post-sharer.php:179
 msgid "Show only social icon?"
 msgstr "Afficher uniquement les icônes&nbsp;?"
 
-#: ../juiz-social-post-sharer.php:181
+#: ../juiz-social-post-sharer.php:179
 msgid "hide text, show it on mouse over or focus"
 msgstr "cache le texte et l'affiche uniquement au survol ou focus"
 
-#: ../juiz-social-post-sharer.php:182
+#: ../juiz-social-post-sharer.php:180
 msgid "Open links in a new window?"
 msgstr "Ouvrir les liens dans une nouvelle fenêtre&nbsp;?"
 
-#: ../juiz-social-post-sharer.php:182
-msgid "adds a <code>target=\"_blank\"</code> attribute"
-msgstr "ajoute un adds attribut <code>target=\"_blank\"</code>"
+#: ../juiz-social-post-sharer.php:180
+#, php-format
+msgid "adds a %s attribute"
+msgstr "ajoute l'attribut %s"
 
-#: ../juiz-social-post-sharer.php:218
+#: ../juiz-social-post-sharer.php:216
 msgid "Here, you can modify default settings of the SPS plugin"
 msgstr "Ici, vous pouvez modifier les réglages par défaut du plugin SPS"
 
-#: ../juiz-social-post-sharer.php:235
+#: ../juiz-social-post-sharer.php:229
 msgid "Juizy Light Tone"
 msgstr "Juizy Light Tone"
 
-#: ../juiz-social-post-sharer.php:239
+#: ../juiz-social-post-sharer.php:233
 msgid "Juizy Light Tone Reverse"
 msgstr "Juizy Light Tone Inversé"
 
-#: ../juiz-social-post-sharer.php:243
+#: ../juiz-social-post-sharer.php:237
 msgid "Blue Metro Style"
 msgstr "Style Metro bleu"
 
-#: ../juiz-social-post-sharer.php:247
+#: ../juiz-social-post-sharer.php:241
 msgid "Gray Metro Style"
 msgstr "Style Metro gris"
 
-#: ../juiz-social-post-sharer.php:260
+#: ../juiz-social-post-sharer.php:254
 msgid "uses JavaScript to work"
 msgstr "utilise JavaScript pour fonctionner"
 
-#: ../juiz-social-post-sharer.php:273
+#: ../juiz-social-post-sharer.php:267
 msgid ""
 "Modify advanced settings of the plugin. Some of them needs JavaScript (only "
 "one file loaded)"
@@ -95,75 +96,78 @@ msgstr ""
 "Modifiez les réglages avancés du plugin. Certains d'entre eux nécessite "
 "JavaScript (un seul fichier chargé)"
 
-#: ../juiz-social-post-sharer.php:283
+#: ../juiz-social-post-sharer.php:277
 msgid "This option will be enabled for a next version"
 msgstr "Cette option sera activée pour une prochaine version"
 
-#: ../juiz-social-post-sharer.php:285 ../juiz-social-post-sharer.php:300
-#: ../juiz-social-post-sharer.php:315
+#: ../juiz-social-post-sharer.php:279 ../juiz-social-post-sharer.php:294
+#: ../juiz-social-post-sharer.php:309
 msgid "Yes"
 msgstr "Oui"
 
-#: ../juiz-social-post-sharer.php:288 ../juiz-social-post-sharer.php:303
-#: ../juiz-social-post-sharer.php:318
+#: ../juiz-social-post-sharer.php:282 ../juiz-social-post-sharer.php:297
+#: ../juiz-social-post-sharer.php:312
 msgid "No"
 msgstr "Non"
 
-#: ../juiz-social-post-sharer.php:330
+#: ../juiz-social-post-sharer.php:324
 msgid "Manage Juiz Social Post Sharer"
 msgstr "Gestion de Juiz Social Post Sharer"
 
-#: ../juiz-social-post-sharer.php:340
+#: ../juiz-social-post-sharer.php:334
 msgid "Donate"
 msgstr "Faire un don"
 
-#: ../juiz-social-post-sharer.php:378
+#: ../juiz-social-post-sharer.php:372
 msgid "Share the post"
 msgstr "Partager la publication"
 
-#: ../juiz-social-post-sharer.php:389
+#: ../juiz-social-post-sharer.php:384
 msgid "Share this article on Twitter"
 msgstr "Partager sur Twitter"
 
-#: ../juiz-social-post-sharer.php:394
+#: ../juiz-social-post-sharer.php:389
 msgid "Share this article on Facebook"
 msgstr "Partager sur Facebook"
 
-#: ../juiz-social-post-sharer.php:399
+#: ../juiz-social-post-sharer.php:394
 msgid "Share this article on Google+"
 msgstr "Partager sur Google+"
 
-#: ../juiz-social-post-sharer.php:404
+#: ../juiz-social-post-sharer.php:399
 msgid "Share an image of this article on Pinterest"
 msgstr "Partager une image de cette publication sur Pinterest"
 
-#: ../juiz-social-post-sharer.php:409
+#: ../juiz-social-post-sharer.php:404
 msgid "Share this article on Viadeo"
 msgstr "Partager sur Viadeo"
 
-#: ../juiz-social-post-sharer.php:414
+#: ../juiz-social-post-sharer.php:409
 msgid "Share this article on LinkedIn"
 msgstr "Partager sur LinkedIn"
 
-#: ../juiz-social-post-sharer.php:419
+#: ../juiz-social-post-sharer.php:414
 msgid "Share this article on Digg"
 msgstr "Partager sur Digg"
 
-#: ../juiz-social-post-sharer.php:424
+#: ../juiz-social-post-sharer.php:419
 msgid "Share this article on StumbleUpon"
 msgstr "Partager sur StumbleUpon"
 
-#: ../juiz-social-post-sharer.php:428
+#: ../juiz-social-post-sharer.php:423
 msgid "Visit this link"
 msgstr "Un bon lien à visiter"
 
-#: ../juiz-social-post-sharer.php:428
+#: ../juiz-social-post-sharer.php:423
 msgid "Hi, I found this information for you! Have a nice day :)"
 msgstr "Salut ! J'ai trouvé cette information pour toi. Bonne journée :)"
 
-#: ../juiz-social-post-sharer.php:429
+#: ../juiz-social-post-sharer.php:424
 msgid "Share this article with a friend (email)"
 msgstr "Partager cette publication avec un ami (e-mail)"
+
+#~ msgid "adds a <code>target=\"_blank\"</code> attribute"
+#~ msgstr "ajoute un adds attribut <code>target=\"_blank\"</code>"
 
 #~ msgid "Howdy, %1$s"
 #~ msgstr "Howdy, %1$s"
