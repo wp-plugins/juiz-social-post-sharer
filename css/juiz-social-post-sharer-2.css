@@ -117,6 +117,7 @@ Version: Styles v2
 }
 .juiz_sps_hide_name a .juis_sps_network_name {
 	max-width:0;
+	max-height: 22px;
 	overflow: hidden;
 }
 .juiz_sps_hide_name a .juiz_sps_icon { margin-right:0; }
