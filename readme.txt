@@ -14,6 +14,10 @@ Add buttons after your posts to allow visitors share your content (includes no J
 
 Select your favorites social networks among a little list.
 
+**This version is a beta, no hook are available for the moment.**
+**Please, use the support forum to tell me bugs encountered**
+
+
 Social networks supported:
 
 * Digg
@@ -27,34 +31,39 @@ Social networks supported:
 * Viadeo
 
 Options plugin:
+
 * 4 graphic templates available
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
 * Choose to display only the social network icon
 
 Langagues available:
+
 * English
 * French
 
 Next updates:
+
 * Add your Twitter account name to add "via" during a share
 * Add a counter for each social network
 * Hooks will be available for developers
 
 This tool relies on third-party applications (API), so if you say "it's broken", please tell me why ;)
 
-**This first version is a beta, no hook are available for the moment.**
-**Please, use the support forum to tell me bugs encountered**
 
 
 –––––––––––––––––––––––––––––––––––
 
 Français
-––––––––––––
+
+––
 
 Ajoutez des boutons après vos publications pour permettre aux visiteurs de partager votre contenu (inclus un mode sans JavaScript)
 
 Sélectionnez vos réseaux sociaux favoris parmis une petite liste.
+
+**Ce plugin est en phase de test (beta), aucun hook n'est encore disponible.**
+**Merci d'utiliser le forum de support si vous rencontrez un bogue.**
 
 Les réseaux sociaux supportés :
 
@@ -69,24 +78,26 @@ Les réseaux sociaux supportés :
 * Viadeo
 
 Options du plugin :
+
 * 4 thèmes graphiques de base
 * Faites votre choix parmi tous les réseaux disponibles
 * Ouverture des liens dans une nouvelle fenêtre (désactivé par défaut)
 * Choix de n'afficher que l'icône du réseau social
 
 Langues disponibles :
+
 * Français
 * Anglais
 
 Prochaines mises à jour :
+
 * Ajout du pseudo Twitter pour ajouter la mention "via" lors d'un partage
 * Ajout d'un compteur pour chaque réseau social
 * Des hooks seront disponibles pour les développeurs
 
 Cet outil dépend d'applications tierces (API), donc si vous notez le plugin comme étant cassé ou fonctionnant mal, merci de me dire pourquoi ;)
 
-**Ce plugin est en phase de test (beta), aucun hook n'est encore disponible.**
-**Merci d'utiliser le forum de support si vous rencontrez un bogue.**
+
 
 == Installation ==
 
