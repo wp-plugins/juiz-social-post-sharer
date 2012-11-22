@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -14,7 +14,6 @@ Add buttons after your posts to allow visitors share your content (includes no J
 
 Select your favorites social networks among a little list.
 
-**This version is a beta, no hook are available for the moment.**
 **Please, use the support forum to tell me bugs encountered**
 
 
@@ -36,17 +35,22 @@ Options plugin:
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
 * Choose to display only the social network icon
+* Add your Twitter account name to add "via" during a share
+* Choose to display button only on certain type of post
+* Choose to display button at the bottom, the top of the content, or both
+* Customize mail texts (subject and body)
+* Some hooks are available for markup customization (or add some things)
 
-Langagues available:
+Languages available:
 
 * English
 * French
 
 Next updates:
 
-* Add your Twitter account name to add "via" during a share
 * Add a counter for each social network
-* Hooks will be available for developers
+* Write CSS directly in HTML (head) for mobile performance
+* Shortcode should be available soon
 
 This tool relies on third-party applications (API), so if you say "it's broken", please tell me why ;)
 
@@ -62,8 +66,8 @@ Ajoutez des boutons après vos publications pour permettre aux visiteurs de part
 
 Sélectionnez vos réseaux sociaux favoris parmis une petite liste.
 
-**Ce plugin est en phase de test (beta), aucun hook n'est encore disponible.**
 **Merci d'utiliser le forum de support si vous rencontrez un bogue.**
+
 
 Les réseaux sociaux supportés :
 
@@ -83,6 +87,11 @@ Options du plugin :
 * Faites votre choix parmi tous les réseaux disponibles
 * Ouverture des liens dans une nouvelle fenêtre (désactivé par défaut)
 * Choix de n'afficher que l'icône du réseau social
+* Ajout du pseudo Twitter pour ajouter la mention "via" lors d'un partage
+* Choix du type de contenu bénéficiant des boutons
+* Choix de l'emplacement des boutons (avant, après le contenu, ou les deux)
+* Personnalisez les textes du mail (sujet et corps)
+* Quelques hooks sont disponibles pour modifier le markup HTML (ou ajouter des choses)
 
 Langues disponibles :
 
@@ -91,9 +100,9 @@ Langues disponibles :
 
 Prochaines mises à jour :
 
-* Ajout du pseudo Twitter pour ajouter la mention "via" lors d'un partage
 * Ajout d'un compteur pour chaque réseau social
-* Des hooks seront disponibles pour les développeurs
+* Écriture du CSS directement dans le HTML (head) pour des raisons de performance sur mobile
+* Un shortcode devrait arriver
 
 Cet outil dépend d'applications tierces (API), donc si vous notez le plugin comme étant cassé ou fonctionnant mal, merci de me dire pourquoi ;)
 
@@ -132,6 +141,13 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 
 == Changelog ==
 
+= 1.1.0 =
+* Add your Twitter account name to add "via" during a share
+* Choose to display button only on certain type of post
+* Choose to display button at the bottom, the top of the content, or both
+* Some hooks are available for markup customization (or add some things)
+* Customize mail texts (subject and body)
+
 = 1.0.1 =
 * Performance enhancement (thank you <a href="http://profiles.wordpress.org/juliobox/">Julio</a>)
 * Some typos corrected
@@ -140,6 +156,9 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 * The first beta version
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Some new things, update it :)
 
 = 1.0.0 =
 Try it ;)
