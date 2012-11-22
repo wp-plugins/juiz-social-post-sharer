@@ -1,0 +1,213 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Juiz Social Post Sharer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-13 01:18+0100\n"
+"PO-Revision-Date: 2012-11-13 01:19+0100\n"
+"Last-Translator: Geoffrey <rikuasakura@hotmail.fr>\n"
+"Language-Team: Creativejuiz <support@creativejuiz.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../juiz-social-post-sharer.php:88
+msgid "Settings"
+msgstr "Settings"
+
+#: ../juiz-social-post-sharer.php:104 ../juiz-social-post-sharer.php:105
+msgid "Social Post Sharer"
+msgstr "Social Post Sharer"
+
+#: ../juiz-social-post-sharer.php:172
+msgid "Main settings"
+msgstr "Main settings"
+
+#: ../juiz-social-post-sharer.php:173
+msgid "Choose a style to display"
+msgstr "Choose a style to display"
+
+#: ../juiz-social-post-sharer.php:174
+msgid "Display those following social networks:"
+msgstr "Display those following social networks:"
+
+#: ../juiz-social-post-sharer.php:177
+msgid "Advanced settings"
+msgstr "Advanced settings"
+
+#: ../juiz-social-post-sharer.php:178
+msgid "Display counter of sharing?"
+msgstr "Display counter of sharing?"
+
+#: ../juiz-social-post-sharer.php:178
+msgid "need JavaScript"
+msgstr "need JavaScript"
+
+#: ../juiz-social-post-sharer.php:179
+msgid "Show only social icon?"
+msgstr "Show only social icon?"
+
+#: ../juiz-social-post-sharer.php:179
+msgid "hide text, show it on mouse over or focus"
+msgstr "hide text, show it on mouse over or focus"
+
+#: ../juiz-social-post-sharer.php:180
+msgid "Open links in a new window?"
+msgstr "Open links in a new window?"
+
+#: ../juiz-social-post-sharer.php:180
+#, php-format
+msgid "adds a %s attribute"
+msgstr "adds a %s attribute"
+
+#: ../juiz-social-post-sharer.php:216
+msgid "Here, you can modify default settings of the SPS plugin"
+msgstr "Here, you can modify default settings of the SPS plugin"
+
+#: ../juiz-social-post-sharer.php:229
+msgid "Juizy Light Tone"
+msgstr "Juizy Light Tone"
+
+#: ../juiz-social-post-sharer.php:233
+msgid "Juizy Light Tone Reverse"
+msgstr "Juizy Light Tone Reverse"
+
+#: ../juiz-social-post-sharer.php:237
+msgid "Blue Metro Style"
+msgstr "Blue Metro Style"
+
+#: ../juiz-social-post-sharer.php:241
+msgid "Gray Metro Style"
+msgstr "Gray Metro Style"
+
+#: ../juiz-social-post-sharer.php:254
+msgid "uses JavaScript to work"
+msgstr "uses JavaScript to work"
+
+#: ../juiz-social-post-sharer.php:267
+msgid ""
+"Modify advanced settings of the plugin. Some of them needs JavaScript (only "
+"one file loaded)"
+msgstr ""
+"Modify advanced settings of the plugin. Some of them needs JavaScript (only "
+"one file loaded)"
+
+#: ../juiz-social-post-sharer.php:277
+msgid "This option will be enabled for a next version"
+msgstr "This option will be enabled for a next version"
+
+#: ../juiz-social-post-sharer.php:279 ../juiz-social-post-sharer.php:294
+#: ../juiz-social-post-sharer.php:309
+msgid "Yes"
+msgstr "Yes"
+
+#: ../juiz-social-post-sharer.php:282 ../juiz-social-post-sharer.php:297
+#: ../juiz-social-post-sharer.php:312
+msgid "No"
+msgstr "No"
+
+#: ../juiz-social-post-sharer.php:324
+msgid "Manage Juiz Social Post Sharer"
+msgstr "Manage Juiz Social Post Sharer"
+
+#: ../juiz-social-post-sharer.php:334
+msgid "Donate"
+msgstr "Donate"
+
+#: ../juiz-social-post-sharer.php:372
+msgid "Share the post"
+msgstr "Share the post"
+
+#: ../juiz-social-post-sharer.php:384
+msgid "Share this article on Twitter"
+msgstr "Share this article on Twitter"
+
+#: ../juiz-social-post-sharer.php:389
+msgid "Share this article on Facebook"
+msgstr "Share this article on Facebook"
+
+#: ../juiz-social-post-sharer.php:394
+msgid "Share this article on Google+"
+msgstr "Share this article on Google+"
+
+#: ../juiz-social-post-sharer.php:399
+msgid "Share an image of this article on Pinterest"
+msgstr "Share an image of this article on Pinterest"
+
+#: ../juiz-social-post-sharer.php:404
+msgid "Share this article on Viadeo"
+msgstr "Share this article on Viadeo"
+
+#: ../juiz-social-post-sharer.php:409
+msgid "Share this article on LinkedIn"
+msgstr "Share this article on LinkedIn"
+
+#: ../juiz-social-post-sharer.php:414
+msgid "Share this article on Digg"
+msgstr "Share this article on Digg"
+
+#: ../juiz-social-post-sharer.php:419
+msgid "Share this article on StumbleUpon"
+msgstr "Share this article on StumbleUpon"
+
+#: ../juiz-social-post-sharer.php:423
+msgid "Visit this link"
+msgstr "Visit this link"
+
+#: ../juiz-social-post-sharer.php:423
+msgid "Hi, I found this information for you! Have a nice day :)"
+msgstr "Hi, I found this information for you! Have a nice day :)"
+
+#: ../juiz-social-post-sharer.php:424
+msgid "Share this article with a friend (email)"
+msgstr "Share this article with a friend (email)"
+
+#~ msgid "adds a <code>target=\"_blank\"</code> attribute"
+#~ msgstr "adds a <code>target=\"_blank\"</code> attribute"
+
+#~ msgid "Howdy, %1$s"
+#~ msgstr "Howdy, %1$s"
+
+#~ msgid "Credits"
+#~ msgstr "Credits"
+
+#~ msgid ""
+#~ "Mobile Admin support by <a href=\"http://wordpress.org/extend/plugins/"
+#~ "juiz-smart-mobile-admin\">Juiz SMA</a>"
+#~ msgstr ""
+#~ "Mobile Admin support by <a href=\"http://wordpress.org/extend/plugins/"
+#~ "juiz-smart-mobile-admin\">Juiz SMA</a>"
+
+#~ msgid "Top of page"
+#~ msgstr "Top of page"
+
+#~ msgid "Admin Mobile Appearance"
+#~ msgstr "Admin Mobile Appearance"
+
+#~ msgid "Show plugins shortcuts in adminbar?"
+#~ msgstr "Show plugins shortcuts in adminbar?"
+
+#~ msgid "Show custom WP admin footer ?"
+#~ msgstr "Show custom WP admin footer ?"
+
+#~ msgid "Settings saved"
+#~ msgstr "Settings saved"
+
+#~ msgid "Manage Juiz Smart Mobile Admin"
+#~ msgstr "Manage Juiz Smart Mobile Admin"
+
+#~ msgid "The redirection failed"
+#~ msgstr "The redirection failed"
+
+#~ msgid "refresh the page"
+#~ msgstr "refresh the page"
+
+#~ msgid "Sorry, nothing to update..."
+#~ msgstr "Sorry, nothing to update..."
+
+#~ msgid "Unknown error..."
+#~ msgstr "Unknown error..."
