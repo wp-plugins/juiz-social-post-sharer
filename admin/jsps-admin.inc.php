@@ -261,11 +261,12 @@ function juiz_sps_setting_checkbox_network_selection() {
 
 			$is_checked = ($v[0] == 1) ? ' checked="checked"' : '';
 			$is_js_test = ($k == 'pinterest') ? ' <em>('.__('uses JavaScript to work','jsps_lang').')</em>' : '';
+			$network_name = isset($v[1]) ? $v[1] : $k;
 
 			echo '<p class="juiz_sps_options_p">
 					<input id="jsps_network_selection_'.$k.'" value="'.$k.'" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_networks][]" type="checkbox"
 				'.$is_checked.' />
-			  		<label for="jsps_network_selection_'.$k.'"><span class="jsps_demo_icon jsps_demo_icon_'.$k.'"></span>'.$v[1].''.$is_js_test.'</label>
+			  		<label for="jsps_network_selection_'.$k.'"><span class="jsps_demo_icon jsps_demo_icon_'.$k.'"></span>'.$network_name.''.$is_js_test.'</label>
 			  	</p>';
 		}
 	}

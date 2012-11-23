@@ -48,7 +48,7 @@ function make_juiz_sps_multilang() {
 }
 
 if ( is_admin() || ( defined( 'DOING_AJAX' ) && !DOING_AJAX ) ) {
-
+	
 	include('admin/jsps-admin.inc.php');
 
 } // end if is_admin
@@ -174,29 +174,30 @@ if (!is_admin()) {
 					$juiz_sps_content .= $after_the_list;
 					$juiz_sps_content .= '</div>';
 					$juiz_sps_content .= $after_the_sps_content;
+					
+					if (isset($juiz_sps_options['juiz_sps_display_where'])) {
+						switch ($juiz_sps_options['juiz_sps_display_where']) {
+							case 'bottom' :
+								return $content.$juiz_sps_content;
+								break;
+							case 'top' :
+								return $juiz_sps_content.$content;
+								break;
+							case 'both' :
+								return $juiz_sps_content.$content.$juiz_sps_content;
+								break;
+							default :
+								return $content.$juiz_sps_content;
+						}
+					}	
+					else
+						return $content.$juiz_sps_content;
 
-				}
-
-				if (isset($juiz_sps_options['juiz_sps_display_where'])) {
-					switch ($juiz_sps_options['juiz_sps_display_where']) {
-						case 'bottom' :
-							return $content.$juiz_sps_content;
-							break;
-						case 'top' :
-							return $juiz_sps_content.$content;
-							break;
-						case 'both' :
-							return $juiz_sps_content.$content.$juiz_sps_content;
-							break;
-						default :
-							return $content.$juiz_sps_content;
-					}
-				}	
-				else
-					return $content.$juiz_sps_content;
-			}
+				} // end if the good post type
+				else { return $content; }
+			} // end if isset post type option
 			else { return $content; }
-		}
-	}
+		} // end function
+	} // end if function exists
 
 }
