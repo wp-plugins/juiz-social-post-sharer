@@ -130,7 +130,12 @@ You can use one of both method :
 
 No FAQ for the moment
 
+= Some options are not visible (if it's not the first installation, but an update of the plugin) =
+
+Deactivate and reactivate the plugin to force the options rebuild.
+
 = Nothing ? =
+
 You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creativejuiz.fr/blog/</a>
 
 
