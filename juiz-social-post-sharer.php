@@ -71,7 +71,7 @@ if (!is_admin()) {
 	}
 
 	// write buttons in content
-	add_action('the_content', 'juiz_sps_print_links', 1, 10);
+	add_action('the_content', 'juiz_sps_print_links', 10, 1);
 	if ( !function_exists('juiz_sps_print_links')) {
 		function juiz_sps_print_links($content) {
 
