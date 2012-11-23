@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -141,6 +141,9 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 
 == Changelog ==
 
+= 1.1.1 =
+* Styles bug correction
+
 = 1.1.0 =
 * Add your Twitter account name to add "via" during a share
 * Choose to display button only on certain type of post
@@ -156,6 +159,9 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 * The first beta version
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Need an update, there is a styles bug
 
 = 1.1.0 =
 Some new things, update it :)
