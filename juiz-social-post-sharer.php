@@ -164,7 +164,7 @@ if (!is_admin()) {
 									break;
 							}
 							$network_name = isset($v[1]) ? $v[1] : $k;
-							$juiz_sps_content .= '<'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.$api_link.'" rel="nofollow" title="'.$api_text.'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon"></span><span class="juis_sps_network_name">'.$v[1].'</span></a></'.$li.'>';
+							$juiz_sps_content .= '<'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.$api_link.'" rel="nofollow" title="'.$api_text.'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon"></span><span class="juis_sps_network_name">'.$network_name.'</span></a></'.$li.'>';
 
 						}
 					}
