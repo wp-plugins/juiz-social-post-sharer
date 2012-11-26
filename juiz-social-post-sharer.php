@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://www.creativejuiz.fr/blog/
 Description: Add buttons after your posts to allow visitors share your content (includes no JavaScript mode). The setting page is located in *Settings* submenu. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Donate</a>
 Author: Geoffrey Crofte
-Version: 1.1.1
+Version: 1.1.2
 Author URI: http://crofte.fr
 License: GPLv2 or later 
 */
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.1.1' );
+define( 'JUIZ_SPS_VERSION',		 '1.1.2' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -62,6 +62,7 @@ if (!is_admin()) {
 		function juiz_sps_style_and_script() {
 			$juiz_sps_options = get_option( JUIZ_SPS_SETTING_NAME );
 			if(is_array($juiz_sps_options)) {
+				// TODO future : if(is_numeric($juiz_sps_options['juiz_sps_style'] ) && $juiz_sps_options['juiz_sps_write_css_in_html']==0)
 				if( is_numeric( $juiz_sps_options['juiz_sps_style'] ) )
 					wp_enqueue_style( 'juiz_sps_styles', JUIZ_SPS_PLUGIN_URL.'css/'.JUIZ_SPS_SLUG.'-'.$juiz_sps_options['juiz_sps_style'].'.min.css', false, false, 'all' );
 				if(is_numeric( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 )
@@ -95,6 +96,7 @@ if (!is_admin()) {
 					$after_the_list = apply_filters('juiz_sps_after_the_list', '');
 					$before_first_i = apply_filters('juiz_sps_before_first_item', '');
 					$after_last_i = apply_filters('juiz_sps_after_last_item', '');
+					$container_classes = apply_filters('juiz_sps_container_classes', '');
 
 					// classes and attributes options
 					$juiz_sps_target_link = (isset($juiz_sps_options['juiz_sps_target_link']) && $juiz_sps_options['juiz_sps_target_link']==1) ? ' target="_blank"' : '';
@@ -102,7 +104,7 @@ if (!is_admin()) {
 
 					// beginning markup
 					$juiz_sps_content  = $before_the_sps_content;
-					$juiz_sps_content .= '<div class="juiz_sps_links">';
+					$juiz_sps_content .= '<div class="juiz_sps_links '.$container_classes.'">';
 					$juiz_sps_content .= '<p class="screen-reader-text juiz_sps_maybe_hidden_text">'.__('Share the post','jsps_lang').' "'.get_the_title().'"</p>';
 					$juiz_sps_content .= $before_the_list;
 					$juiz_sps_content .= '<'.$ul.' class="juiz_sps_links_list'.$juiz_sps_hidden_name_class.'">';
@@ -113,13 +115,15 @@ if (!is_admin()) {
 							
 							$api_link = $api_text = '';
 							$text = urlencode($post->post_title);
-							$url = urlencode($post->guid);
+							$url = urlencode(get_permalink());
+							$url = apply_filters('juiz_sps_the_permalink', $url);
 
 							$twitter_user = $juiz_sps_options['juiz_sps_twitter_user'] != '' ? "&amp;related=".$juiz_sps_options['juiz_sps_twitter_user']."&amp;via=". $juiz_sps_options['juiz_sps_twitter_user'] : '';
 
 							switch ($k) {
 								case "twitter" :
 									$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer='.$url.'&amp;text='.$text.'&amp;url='.$url.$twitter_user;
+									//https://twitter.com/intent/tweet?source=webclient&amp;hastags=&amp;original_referer='.$url.'&amp;text='.$text.'&amp;url='.$url.'&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte
 									$api_text = __('Share this article on Twitter','jsps_lang');
 									break;
 
@@ -174,7 +178,7 @@ if (!is_admin()) {
 					$juiz_sps_content .= $after_the_list;
 					$juiz_sps_content .= '</div>';
 					$juiz_sps_content .= $after_the_sps_content;
-					
+
 					if (isset($juiz_sps_options['juiz_sps_display_where'])) {
 						switch ($juiz_sps_options['juiz_sps_display_where']) {
 							case 'bottom' :
@@ -195,9 +199,28 @@ if (!is_admin()) {
 
 				} // end if the good post type
 				else { return $content; }
+
 			} // end if isset post type option
 			else { return $content; }
+
 		} // end function
 	} // end if function exists
 
 }
+
+/** 
+TODO
+---- shortcode ----
+[juiz_social] = la config
+[juiz_social buttons="facebook"] = que FB
+[juiz_social buttons="facebook,twitter"] = fb+TW
+
+---- hooks ----
+
+---- options ----
+== Ajouter une option "Ajouter les tags d'un article aux hashtags du tweet"
+
+---- autres ----
+== remplacer GUID par l'url complète
+
+**/

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -31,7 +31,7 @@ Social networks supported:
 
 Options plugin:
 
-* 4 graphic templates available
+* 5 graphic templates available
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
 * Choose to display only the social network icon
@@ -51,6 +51,7 @@ Next updates:
 * Add a counter for each social network
 * Write CSS directly in HTML (head) for mobile performance
 * Shortcode should be available soon
+* Documentation coming
 
 This tool relies on third-party applications (API), so if you say "it's broken", please tell me why ;)
 
@@ -83,7 +84,7 @@ Les réseaux sociaux supportés :
 
 Options du plugin :
 
-* 4 thèmes graphiques de base
+* 5 thèmes graphiques de base
 * Faites votre choix parmi tous les réseaux disponibles
 * Ouverture des liens dans une nouvelle fenêtre (désactivé par défaut)
 * Choix de n'afficher que l'icône du réseau social
@@ -103,6 +104,7 @@ Prochaines mises à jour :
 * Ajout d'un compteur pour chaque réseau social
 * Écriture du CSS directement dans le HTML (head) pour des raisons de performance sur mobile
 * Un shortcode devrait arriver
+* Une documentation arrive
 
 Cet outil dépend d'applications tierces (API), donc si vous notez le plugin comme étant cassé ou fonctionnant mal, merci de me dire pourquoi ;)
 
@@ -130,12 +132,7 @@ You can use one of both method :
 
 No FAQ for the moment
 
-= Some options are not visible (if it's not the first installation, but an update of the plugin) =
-
-Deactivate and reactivate the plugin to force the options rebuild.
-
 = Nothing ? =
-
 You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creativejuiz.fr/blog/</a>
 
 
@@ -145,6 +142,12 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 2. After a post
 
 == Changelog ==
+
+= 1.1.2 =
+* New hook for developper (can now hook shared url)
+* Styles : New optionnal style for buttons (thanks to <a href="http://tonytrancard.fr">Tony</a>)
+* Styles : bug correction for Chrome
+* Styles : little margin added before and after line of buttons
 
 = 1.1.1 =
 * Styles bug correction
@@ -164,9 +167,6 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 * The first beta version
 
 == Upgrade Notice ==
-
-= 1.1.1 =
-Need an update, there is a styles bug
 
 = 1.1.0 =
 Some new things, update it :)
