@@ -1,4 +1,4 @@
-=== Juiz Social Post Sharer ===
+﻿=== Juiz Social Post Sharer ===
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, post, share
@@ -129,6 +129,15 @@ You can use one of both method :
 
 
 == Frequently Asked Questions ==
+
+= Can I change the long URL by a short permalink? =
+Yes, using this hook :
+`add_filter('juiz_sps_the_permalink', 'my_jsps_link');
+function my_jsps_link($permalink) {
+	global $post;
+	return $post->guid;
+}`
+
 
 = New style is not visible? =
 Please update to 1.1.3
