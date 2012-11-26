@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -130,8 +130,10 @@ You can use one of both method :
 
 == Frequently Asked Questions ==
 
-= Some options are not visible (if it's not the first installation, but an update of the plugin) =
+= New style is not visible? =
+Please update to 1.1.3
 
+= Some options are not visible (if it's not the first installation, but an update of the plugin) =
 Deactivate and reactivate the plugin to force the options rebuild.
 
 = Nothing ? =
@@ -144,6 +146,9 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 2. After a post
 
 == Changelog ==
+
+= 1.1.3 =
+* Bug fix on new style
 
 = 1.1.2 =
 * New hook for developper (can now hook shared url)

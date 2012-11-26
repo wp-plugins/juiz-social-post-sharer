@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://www.creativejuiz.fr/blog/
 Description: Add buttons after your posts to allow visitors share your content (includes no JavaScript mode). The setting page is located in *Settings* submenu. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Donate</a>
 Author: Geoffrey Crofte
-Version: 1.1.2
+Version: 1.1.3
 Author URI: http://crofte.fr
 License: GPLv2 or later 
 */
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.1.2' );
+define( 'JUIZ_SPS_VERSION',		 '1.1.3' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -62,7 +62,6 @@ if (!is_admin()) {
 		function juiz_sps_style_and_script() {
 			$juiz_sps_options = get_option( JUIZ_SPS_SETTING_NAME );
 			if(is_array($juiz_sps_options)) {
-				// TODO future : if(is_numeric($juiz_sps_options['juiz_sps_style'] ) && $juiz_sps_options['juiz_sps_write_css_in_html']==0)
 				if( is_numeric( $juiz_sps_options['juiz_sps_style'] ) )
 					wp_enqueue_style( 'juiz_sps_styles', JUIZ_SPS_PLUGIN_URL.'css/'.JUIZ_SPS_SLUG.'-'.$juiz_sps_options['juiz_sps_style'].'.min.css', false, false, 'all' );
 				if(is_numeric( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 )
@@ -123,7 +122,6 @@ if (!is_admin()) {
 							switch ($k) {
 								case "twitter" :
 									$api_link = 'https://twitter.com/intent/tweet?source=webclient&amp;original_referer='.$url.'&amp;text='.$text.'&amp;url='.$url.$twitter_user;
-									//https://twitter.com/intent/tweet?source=webclient&amp;hastags=&amp;original_referer='.$url.'&amp;text='.$text.'&amp;url='.$url.'&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte
 									$api_text = __('Share this article on Twitter','jsps_lang');
 									break;
 
@@ -207,20 +205,3 @@ if (!is_admin()) {
 	} // end if function exists
 
 }
-
-/** 
-TODO
----- shortcode ----
-[juiz_social] = la config
-[juiz_social buttons="facebook"] = que FB
-[juiz_social buttons="facebook,twitter"] = fb+TW
-
----- hooks ----
-
----- options ----
-== Ajouter une option "Ajouter les tags d'un article aux hashtags du tweet"
-
----- autres ----
-== remplacer GUID par l'url complète
-
-**/

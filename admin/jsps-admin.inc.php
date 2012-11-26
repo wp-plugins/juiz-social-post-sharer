@@ -103,7 +103,7 @@ function juiz_sps_custom_admin_header() {
 			#juiz-sps th {font-weight:bold; padding-left:0}
 			#juiz-sps th em {font-weight:normal;font-style: italic; color: #777;}
 
-			.jsps_demo_icon { display: inline-block; width: 16px; height: 16px; margin-right: 5px; vertical-align: middle; background: url('.JUIZ_SPS_PLUGIN_URL.'/img/sps_sprites.png) no-repeat 0 -16px;}
+			.jsps_demo_icon { display: inline-block; width: 16px; height: 16px; margin-right: 5px; vertical-align: middle; background: url('.JUIZ_SPS_PLUGIN_URL.'img/sps_sprites.png) no-repeat 0 -16px;}
 			.jsps_demo_icon_google 		{ background-position: -16px -16px }
 			.jsps_demo_icon_facebook 	{ background-position: -32px -16px }
 			.jsps_demo_icon_mail	 	{ background-position: -48px -16px }
@@ -128,10 +128,11 @@ function juiz_sps_custom_admin_header() {
 
 			.juiz_sps_styles_options label { vertical-align:top;}
 			.juiz_sps_styles_options input { vertical-align:8px;}
-			.juiz_sps_demo_styles { display:inline-block; vertical-align:middle; width:592px; height:26px; background:url('.JUIZ_SPS_PLUGIN_URL.'/img/demo-sprites.png) no-repeat 0 -26px}
+			.juiz_sps_demo_styles { display:inline-block; vertical-align:middle; width:592px; height:26px; background:url('.JUIZ_SPS_PLUGIN_URL.'img/demo-sprites.png) no-repeat 0 -26px}
 			[for="jsps_style_2"] .juiz_sps_demo_styles { background-position: 0 0 }
 			[for="jsps_style_3"] .juiz_sps_demo_styles { height: 36px; background-position: 0 -93px }
 			[for="jsps_style_4"] .juiz_sps_demo_styles { height: 36px; background-position: 0 -129px }
+			[for="jsps_style_5"] .juiz_sps_demo_styles { height: 41px; background-position: 0 -165px }
 			.juiz_sps_style_name { display:inline-block; margin: 4px 0 0 2px; color: #777;}
 		</style>
 		<!-- end of '.JUIZ_SPS_PLUGIN_NAME.' styles -->
@@ -196,7 +197,7 @@ function juiz_sps_sanitize($options) {
 	}
 
 
-	$newoptions['juiz_sps_style'] = $options['juiz_sps_style']>=1 && $options['juiz_sps_style']<=4 ? (int)$options['juiz_sps_style'] : 1;
+	$newoptions['juiz_sps_style'] = $options['juiz_sps_style']>=1 && $options['juiz_sps_style']<=5 ? (int)$options['juiz_sps_style'] : 1;
 	$newoptions['juiz_sps_hide_social_name'] = (int)$options['juiz_sps_hide_social_name']==1 ? 1 : 0;
 	$newoptions['juiz_sps_target_link'] = (int)$options['juiz_sps_target_link']==1 ? 1 : 0;
 	$newoptions['juiz_sps_counter'] = (int)$options['juiz_sps_counter']==1 ? 1 : 0;
@@ -229,7 +230,7 @@ function juiz_sps_setting_radio_style_choice() {
 
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
 	if ( is_array($options) ) {
-		$n1 = $n2 = $n3 = $n4 = "";
+		$n1 = $n2 = $n3 = $n4 = $n5 = "";
 		${'n'.$options['juiz_sps_style']} = " checked='checked'";
 	
 		echo '<p class="juiz_sps_styles_options">
@@ -247,6 +248,10 @@ function juiz_sps_setting_radio_style_choice() {
 				<p class="juiz_sps_styles_options">
 					<input id="jsps_style_4" value="4" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_style]" type="radio" '.$n4.' />
 					<label for="jsps_style_4"><span class="juiz_sps_demo_styles"></span><br /><span class="juiz_sps_style_name">'. __('Gray Metro Style', 'jsps_lang') . '</span></label>
+				</p>
+				<p class="juiz_sps_styles_options">
+					<input id="jsps_style_5" value="5" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_style]" type="radio" '.$n5.' />
+					<label for="jsps_style_5"><span class="juiz_sps_demo_styles"></span><br /><span class="juiz_sps_style_name">'. __('Modern Style', 'jsps_lang') . ' '.__('by', 'jsps_lang').' <a href="http://tonytrancard.fr">Tony Trancard</a></span></label>
 				</p>';
 	}
 }
