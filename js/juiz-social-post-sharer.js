@@ -11,6 +11,6 @@ Author: Geoffrey Crofte
 
 jQuery(document).ready(function($){
 	
-	//do something (new code for next version 1.0.1)
+	//do something
 
 });

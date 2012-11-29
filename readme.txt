@@ -1,10 +1,10 @@
-﻿=== Juiz Social Post Sharer ===
+=== Juiz Social Post Sharer ===
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -143,6 +143,7 @@ function my_jsps_link($permalink) {
 Please update to 1.1.3
 
 = Some options are not visible (if it's not the first installation, but an update of the plugin) =
+
 Deactivate and reactivate the plugin to force the options rebuild.
 
 = Nothing ? =
@@ -155,6 +156,12 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 2. After a post
 
 == Changelog ==
+
+= 1.1.4 =
+* New choice: displaying button on all lists of articles (blog, archive, tag, search result, etc.)
+* Admin page improvement
+* New dynamic classes on HTML generated code
+* Partial documentation available with plugin (see the footer links)
 
 = 1.1.3 =
 * Bug fix on new style

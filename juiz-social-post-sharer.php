@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://www.creativejuiz.fr/blog/
 Description: Add buttons after your posts to allow visitors share your content (includes no JavaScript mode). The setting page is located in *Settings* submenu. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Donate</a>
 Author: Geoffrey Crofte
-Version: 1.1.3
+Version: 1.1.4
 Author URI: http://crofte.fr
 License: GPLv2 or later 
 */
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.1.3' );
+define( 'JUIZ_SPS_VERSION',		 '1.1.4' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -72,6 +72,7 @@ if (!is_admin()) {
 
 	// write buttons in content
 	add_action('the_content', 'juiz_sps_print_links', 10, 1);
+	add_action('the_excerpt', 'juiz_sps_print_links', 10, 1);
 	if ( !function_exists('juiz_sps_print_links')) {
 		function juiz_sps_print_links($content) {
 
@@ -84,7 +85,14 @@ if (!is_admin()) {
 			if( isset($juiz_sps_options['juiz_sps_display_in_types']) ) {
 
 				// write buttons only if admin checked this type
-				if ( is_singular($juiz_sps_options['juiz_sps_display_in_types']) ) {
+				$is_all_lists = in_array('all_lists', $juiz_sps_options['juiz_sps_display_in_types']);
+				$singular_options = $juiz_sps_options['juiz_sps_display_in_types'];
+				unset($singular_options['all_lists']);
+
+				$is_lists_authorized = (is_archive() || is_front_page() || is_search() || is_tag() || is_post_type_archive()) && $is_all_lists ? true : false;
+				$is_singular = is_singular($singular_options);
+
+				if ( $is_singular || $is_lists_authorized ) {
 
 					// some markup filters
 					$ul = apply_filters('juiz_sps_list_container_tag', 'ul'); 
@@ -100,10 +108,11 @@ if (!is_admin()) {
 					// classes and attributes options
 					$juiz_sps_target_link = (isset($juiz_sps_options['juiz_sps_target_link']) && $juiz_sps_options['juiz_sps_target_link']==1) ? ' target="_blank"' : '';
 					$juiz_sps_hidden_name_class = (isset($juiz_sps_options['juiz_sps_hide_social_name']) && $juiz_sps_options['juiz_sps_hide_social_name']==1) ? ' juiz_sps_hide_name' : '';
+					$juiz_sps_display_where = isset($juiz_sps_options['juiz_sps_display_where']) ? $juiz_sps_options['juiz_sps_display_where'] : '';
 
 					// beginning markup
 					$juiz_sps_content  = $before_the_sps_content;
-					$juiz_sps_content .= '<div class="juiz_sps_links '.$container_classes.'">';
+					$juiz_sps_content .= '<div class="juiz_sps_links '.$container_classes.' juiz_sps_displayed_'.$juiz_sps_display_where.'">';
 					$juiz_sps_content .= '<p class="screen-reader-text juiz_sps_maybe_hidden_text">'.__('Share the post','jsps_lang').' "'.get_the_title().'"</p>';
 					$juiz_sps_content .= $before_the_list;
 					$juiz_sps_content .= '<'.$ul.' class="juiz_sps_links_list'.$juiz_sps_hidden_name_class.'">';
@@ -177,8 +186,8 @@ if (!is_admin()) {
 					$juiz_sps_content .= '</div>';
 					$juiz_sps_content .= $after_the_sps_content;
 
-					if (isset($juiz_sps_options['juiz_sps_display_where'])) {
-						switch ($juiz_sps_options['juiz_sps_display_where']) {
+					if ($juiz_sps_display_where!='') {
+						switch ($juiz_sps_display_where) {
 							case 'bottom' :
 								return $content.$juiz_sps_content;
 								break;
