@@ -5,6 +5,7 @@
 			#juiz-sps .error { margin: 20px 20px 20px 48px; }
 			#juiz-sps .submit { margin-bottom: 3em }
 			#juiz-sps .error em { font-weight: normal; }
+			#juiz-sps .jsps_info { max-width:800px; padding: 15px; margin-left: 48px; color: #888; line-height: 1.6;  background: #f2f2f2; box-shadow: 0 0 3px #999;}
 			#juiz-sps h3 { font-size: 1.65em; color: #444; font-weight:normal; }
 			#juiz-sps table + h3 { margin-top: 3em;}
 			.juiz_sps_section_intro {font-style: italic; color: #777; }
@@ -21,6 +22,7 @@
 			.jsps_demo_icon_linkedin 	{ background-position: -96px -16px }
 			.jsps_demo_icon_digg	 	{ background-position: -112px -16px }
 			.jsps_demo_icon_stumbleupon	{ background-position: -128px -16px }
+			.jsps_demo_icon_weibo		{ background-position: -144px -16px }
 
 			:checked + label .jsps_demo_icon_twitter 	{ background-position: 0 0 }
 			:checked + label .jsps_demo_icon_google 	{ background-position: -16px 0 }
@@ -31,6 +33,7 @@
 			:checked + label .jsps_demo_icon_linkedin 	{ background-position: -96px 0 }
 			:checked + label .jsps_demo_icon_digg	 	{ background-position: -112px 0 }
 			:checked + label .jsps_demo_icon_stumbleupon{ background-position: -128px 0 }
+			:checked + label .jsps_demo_icon_weibo		{ background-position: -144px 0 }
 
 			#juiz-sps input[type="radio"] + label { display: inline-block; vertical-align: middle; margin-right: 20px;}
 			.juiz_sps_options_p { margin: .2em 5% .2em 0; }
@@ -60,6 +63,18 @@
 			.juiz_disabled th {color: #999;}
 
 			.juiz_bottom_links em {display:block; margin-bottom: .5em; font-style:italic; color:#777;}
+
+			@media (max-width:640px) {
+				#juiz-sps .jsps_info { margin-left: 0; }
+				.juiz_bottom_links { padding: 15px; }
+				#juiz-sps form { padding-left:0;}
+				.juiz_bottom_links a { margin-bottom: 5px;}
+				.juiz_sps_demo_styles {width: 110px;}
+				#juiz-sps .juiz_sps_styles_options input[type="radio"] + label {margin-right:0}
+				.juiz_sps_style_name a {display:block;}
+				#jsps_style_5 {vertical-align: 21px;}
+				.juiz_sps_demo_hide {width: 92px;}
+			}
 			</style>
 		<!-- end of '.JUIZ_SPS_PLUGIN_NAME.' styles -->
 

@@ -25,11 +25,12 @@ function juiz_sps_activation() {
 											"linkedin" 		=>	array(0, "LinkedIn"),
 											"digg"	 		=>	array(0, "Digg"),
 											"stumbleupon"	=>	array(0, "StumbleUpon"),
+											"weibo"			=>	array(0, "Weibo"), // new 1.2.0
 											"mail"			=>	array(1, "E-mail")
 										),
 			'juiz_sps_counter'			=> 0,
 			'juiz_sps_hide_social_name' => 0,
-			'juiz_sps_target_link'		=> 0, // news
+			'juiz_sps_target_link'		=> 0, // news 1.1.0
 			'juiz_sps_twitter_user'		=> 'CreativeJuiz',
 			'juiz_sps_display_in_types' => array('post'),
 			'juiz_sps_display_where'	=> 'bottom',
@@ -138,9 +139,12 @@ add_filter('admin_init','add_juiz_sps_plugin_options');
 function juiz_sps_sanitize($options) {
 	
 	if( is_array( $options['juiz_sps_networks'] ) ) {
-	
-		$temp_array = array('facebook'=>0, 'twitter'=>0, 'google'=>0, 'pinterest'=>0, 'viadeo'=>0, 'linkedin'=>0, 'digg'=>0, 'stumbleupon'=>0, 'mail' => 0);
+		
+		$temp_array = array('facebook'=>0, 'twitter'=>0, 'google'=>0, 'pinterest'=>0, 'viadeo'=>0, 'linkedin'=>0, 'digg'=>0, 'stumbleupon'=>0, 'weibo'=>0, 'mail' => 0);
 		$juiz_sps_opt = get_option ( JUIZ_SPS_SETTING_NAME );
+
+		// new option (1.2.0)
+		if ( !in_array('weibo', $juiz_sps_opt['juiz_sps_networks']) ) $juiz_sps_opt['juiz_sps_networks']['weibo'] = array(0, "Weibo");
 
 		foreach( $options['juiz_sps_networks'] as $nw )
 			$temp_array[$nw]=1;
@@ -229,6 +233,7 @@ function juiz_sps_setting_checkbox_network_selection() {
 			  		<label for="jsps_network_selection_'.$k.'"><span class="jsps_demo_icon jsps_demo_icon_'.$k.'"></span>'.$network_name.''.$is_js_test.'</label>
 			  	</p>';
 		}
+		if ( !is_array($options['juiz_sps_networks']['weibo']) ) echo '<p class="juiz_sps_options_p"><input id="jsps_network_selection_weibo" value="weibo" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_networks][]" type="checkbox"> <label for="jsps_network_selection_weibo"><span class="jsps_demo_icon jsps_demo_icon_weibo"></span>Weibo</label> <em class="jsps_new">('.__('New social network!', 'jsps_lang').')</em></p>';
 	}
 }
 
@@ -398,7 +403,12 @@ function juiz_sps_settings_page() {
 				<em><?php _e('Is you don\'t want to use this plugin more longer, go to Plugins section and deactivate it.','jsps_lang'); ?></em></p>
 		</div>
 		<?php } ?>
-		
+		<p class="jsps_info">
+			<?php echo sprintf(__('You can use %s[juiz_sps]%s shortcode with an optional attribute "buttons" listing the social networks you want.','jsps_lang'), '<code>','</code>'); ?>
+			<br />
+			<?php _e('Example with all the networks:','jsps_lang') ?>
+			<code>[juiz_sps buttons="facebook, twitter, google, pinterest, digg, weibo, linkedin, viadeo, stumbleupon, mail"]</code>
+		</p>
 		<form method="post" action="options.php">
 			<?php
 				settings_fields( JUIZ_SPS_SETTING_NAME );

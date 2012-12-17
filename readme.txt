@@ -1,10 +1,10 @@
 === Juiz Social Post Sharer ===
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, post, share
+Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.1.4
+Stable tag: 1.2.0
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -28,6 +28,7 @@ Social networks supported:
 * StumbleUpon
 * Twitter
 * Viadeo
+* Weibo
 
 Options plugin:
 
@@ -40,18 +41,22 @@ Options plugin:
 * Choose to display button at the bottom, the top of the content, or both
 * Customize mail texts (subject and body)
 * Some hooks are available for markup customization (or add some things)
+* Use shortcode <code>[juiz_sps]</code> where you want
+* Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
 
 Languages available:
 
 * English
 * French
 
+<strong>Full <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> available</strong>.
+
+Note: the administration page is compatible with <a href="http://wordpress.org/extend/plugins/juiz-smart-mobile-admin" target="_blank">Juiz Smart Mobile Admin</a>
+
 Next updates:
 
 * Add a counter for each social network
 * Write CSS directly in HTML (head) for mobile performance
-* Shortcode should be available soon
-* Documentation coming
 
 This tool relies on third-party applications (API), so if you say "it's broken", please tell me why ;)
 
@@ -81,6 +86,7 @@ Les réseaux sociaux supportés :
 * StumbleUpon
 * Twitter
 * Viadeo
+* Weibo
 
 Options du plugin :
 
@@ -93,18 +99,22 @@ Options du plugin :
 * Choix de l'emplacement des boutons (avant, après le contenu, ou les deux)
 * Personnalisez les textes du mail (sujet et corps)
 * Quelques hooks sont disponibles pour modifier le markup HTML (ou ajouter des choses)
+* Utilisez le shortcode <code>[juiz_sps]</code> où vous le souhaitez
+* Utilisez la fonction de template <code>juiz_sps()</code> ou <code>get_juiz_sps()</code> dans votre code
 
 Langues disponibles :
 
 * Français
 * Anglais
 
+<strong><a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> complète disponible !</strong>.
+
+Note : la page d'administration est compatible avec <a href="http://wordpress.org/extend/plugins/juiz-smart-mobile-admin" target="_blank">Juiz Smart Mobile Admin</a>
+
 Prochaines mises à jour :
 
 * Ajout d'un compteur pour chaque réseau social
 * Écriture du CSS directement dans le HTML (head) pour des raisons de performance sur mobile
-* Un shortcode devrait arriver
-* Une documentation arrive
 
 Cet outil dépend d'applications tierces (API), donc si vous notez le plugin comme étant cassé ou fonctionnant mal, merci de me dire pourquoi ;)
 
@@ -138,16 +148,11 @@ function my_jsps_link($permalink) {
 	return $post->guid;
 }`
 
-
 = New style is not visible? =
 Please update to 1.1.3
 
 = Some options are not visible (if it's not the first installation, but an update of the plugin) =
-
 Deactivate and reactivate the plugin to force the options rebuild.
-
-= Nothing ? =
-You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creativejuiz.fr/blog/</a>
 
 
 == Screenshots ==
@@ -156,6 +161,12 @@ You can find me at : <a href="http://www.creativejuiz.fr/blog/">http://www.creat
 2. After a post
 
 == Changelog ==
+
+= 1.2.0 =
+* New social networks available : weibo
+* CSS improvement
+* Documentation available! (see the bottom of settings page)
+* New hooks and template functions available (see the documentation)
 
 = 1.1.4 =
 * New choice: displaying button on all lists of articles (blog, archive, tag, search result, etc.)

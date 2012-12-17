@@ -60,6 +60,7 @@ Version: Styles v2
 .juiz_sps_links .juiz_sps_link_linkedin .juiz_sps_icon { background-position: -96px -16px; }
 .juiz_sps_links .juiz_sps_link_digg .juiz_sps_icon { background-position: -112px -16px; }
 .juiz_sps_links .juiz_sps_link_stumbleupon .juiz_sps_icon { background-position: -128px -16px; }
+.juiz_sps_links .juiz_sps_link_weibo .juiz_sps_icon { background-position: -144px -16px; }
 .juiz_sps_links .juiz_sps_link_mail .juiz_sps_icon { background-position: -48px -16px; }
 
 
@@ -80,6 +81,8 @@ Version: Styles v2
 .juiz_sps_links .juiz_sps_link_linkedin a:focus { color: #279adf; }
 .juiz_sps_links .juiz_sps_link_stumbleupon a:hover,
 .juiz_sps_links .juiz_sps_link_stumbleupon a:focus { color: #eb4823; }
+.juiz_sps_links .juiz_sps_link_weibo a:hover,
+.juiz_sps_links .juiz_sps_link_weibo a:focus { color: #f74700; }
 .juiz_sps_links .juiz_sps_link_mail a:hover,
 .juiz_sps_links .juiz_sps_link_mail a:focus { color: #4280c4; }
 .juiz_sps_links .juiz_sps_item a:hover .juiz_sps_icon,
@@ -98,6 +101,8 @@ Version: Styles v2
 .juiz_sps_links .juiz_sps_item.juiz_sps_link_digg a:focus .juiz_sps_icon { background-position: -112px 0; }
 .juiz_sps_links .juiz_sps_item.juiz_sps_link_stumbleupon a:hover .juiz_sps_icon,
 .juiz_sps_links .juiz_sps_item.juiz_sps_link_stumbleupon a:focus .juiz_sps_icon { background-position: -128px 0; }
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_weibo a:hover .juiz_sps_icon,
+.juiz_sps_links .juiz_sps_item.juiz_sps_link_weibo a:focus .juiz_sps_icon { background-position: -144px 0; }
 .juiz_sps_links .juiz_sps_item.juiz_sps_link_mail a:hover .juiz_sps_icon,
 .juiz_sps_links .juiz_sps_item.juiz_sps_link_mail a:focus .juiz_sps_icon { background-position: -48px 0; }
 
