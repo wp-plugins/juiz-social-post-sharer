@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -41,7 +41,7 @@ Options plugin:
 * Choose to display button at the bottom, the top of the content, or both
 * Customize mail texts (subject and body)
 * Some hooks are available for markup customization (or add some things)
-* Use shortcode <code>[juiz_sps]</code> where you want
+* Use shortcode <code>[juiz_sps]</code> or <code>[juiz_social]</code> where you want
 * Use template function <code>juiz_sps()</code> or <code>get_juiz_sps()</code> in your code
 
 Languages available:
@@ -99,7 +99,7 @@ Options du plugin :
 * Choix de l'emplacement des boutons (avant, après le contenu, ou les deux)
 * Personnalisez les textes du mail (sujet et corps)
 * Quelques hooks sont disponibles pour modifier le markup HTML (ou ajouter des choses)
-* Utilisez le shortcode <code>[juiz_sps]</code> où vous le souhaitez
+* Utilisez le shortcode <code>[juiz_sps]</code> ou <code>[juiz_social]</code> où vous le souhaitez
 * Utilisez la fonction de template <code>juiz_sps()</code> ou <code>get_juiz_sps()</code> dans votre code
 
 Langues disponibles :
@@ -161,6 +161,10 @@ Deactivate and reactivate the plugin to force the options rebuild.
 2. After a post
 
 == Changelog ==
+
+= 1.2.1 =
+* [juiz_sps] shortcode added (you now have [juiz_social] and [juiz_sps])
+* CSS improvement for themes not really well thought ;)
 
 = 1.2.0 =
 * New social networks available : weibo

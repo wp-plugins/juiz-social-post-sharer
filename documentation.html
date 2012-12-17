@@ -267,14 +267,14 @@
 
 
 
-<h2 id="shortcode">ShortCode <span class="since">since 1.2.0</span></h2>
+<h2 id="shortcode">ShortCodes <span class="since">since 1.2.0</span></h2>
 	
 	<p>This plugin has a Shortcode, a kind of BBcode, that allows you to display those buttons where you want.<br />
-	This shortcode uses the keyword <code>juiz_social</code>, a particular word to oust any conflict with other plugins.</p>
+	This shortcode uses the keyword <code>juiz_social</code> or <code>juiz_sps</code> (<span class="since">since 1.2.1</span>), two particular words to oust any conflict with other plugins.</p>
 	
 	<pre class="code"><code class="html">[juiz_social]</code></pre>
 	
-	<p>Used in a post, this shortcode display buttons you selected in settings page.<br />
+	<p>Used in a post, this shortcode all the buttons available (all social networks).<br />
 	Morever, buttons are selectable with there slug in a shortcode parameter:</p>
 	<ul>
 		<li><code>buttons</code>: keywords available are "twitter, facebook, google, linkedin, digg, viadeo, stumbleupon, weibo, pinterest, mail"</li>
@@ -454,19 +454,6 @@ add_filter('juiz_sps_the_permalink', 'jsps_custom_permalink');
 	
 	<dl>
 		<dt>
-			Can I change the long URL by a short permalink? <span class="since">since 1.1.0</span>
-		</dt>
-		<dd>
-			Yes, using this hook :<br />
-			<pre class="code"><code class="php">add_filter('juiz_sps_the_permalink', 'my_jsps_link');
-function my_jsps_link($permalink) {
-	global $post;
-	return $post->guid;
-}</code></pre>
-		</dd>
-		
-		
-		<dt>
 			New style is not visible? <span class="since">since 1.1.2</span>
 		</dt>
 		<dd>
@@ -491,7 +478,7 @@ function my_jsps_link($permalink) {
 	<div id="footer"><p>Documentation for your life easier !<br />
 	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" title="Go to Paypal Website" class="button" target="_blank">Donate</a>
 	<a href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte" target="_blank" class="tweet button">Tweet it</a></p>
-	<p class="last-update">v 1.2.0<br />Last update: 2012, 16 December.</p>
+	<p class="last-update">v 1.2.1<br />Last update: 2012, 17 December.</p>
 
 	</div>
 </body>

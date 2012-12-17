@@ -90,7 +90,6 @@ function add_juiz_sps_settings_page() {
 }
 
 // Some styles for settings page in admin
-//@TODO add_action( 'admin_head', 'juiz_sps_custom_admin_header');
 add_action( 'admin_head-settings_page_'.JUIZ_SPS_SLUG, 'juiz_sps_custom_admin_header');
 function juiz_sps_custom_admin_header() {
 	include_once ('jsps-admin-styles-scripts.php');
@@ -404,9 +403,9 @@ function juiz_sps_settings_page() {
 		</div>
 		<?php } ?>
 		<p class="jsps_info">
-			<?php echo sprintf(__('You can use %s[juiz_sps]%s shortcode with an optional attribute "buttons" listing the social networks you want.','jsps_lang'), '<code>','</code>'); ?>
+			<?php echo sprintf(__('You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional attribute "buttons" listing the social networks you want.','jsps_lang'), '<code>','</code>', '<code>','</code>'); ?>
 			<br />
-			<?php _e('Example with all the networks:','jsps_lang') ?>
+			<?php _e('Example with all the networks available:','jsps_lang') ?>
 			<code>[juiz_sps buttons="facebook, twitter, google, pinterest, digg, weibo, linkedin, viadeo, stumbleupon, mail"]</code>
 		</p>
 		<form method="post" action="options.php">

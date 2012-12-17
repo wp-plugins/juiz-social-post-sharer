@@ -4,7 +4,7 @@ Plugin URI: http://creativejuiz.fr
 Author: Geoffrey Crofte
 Version: Styles v3
 */
-.juiz_sps_links { clear: both; margin: 1em 0;}
+.juiz_sps_links {word-wrap:normal!important; clear: both; margin: 1em 0;}
 .juiz_sps_maybe_hidden_text { position:absolute; left:-9999px; text-indent:-9999px; }
 .juiz_sps_links ul,
 .juiz_sps_links .juiz_sps_item  { 
@@ -73,7 +73,7 @@ Version: Styles v3
 }
 .juiz_sps_hide_name a .juis_sps_network_name {
 	max-width:0;
-	white-space: nowrap;
+	white-space: nowrap!important;
 	overflow: hidden;
 }
 .juiz_sps_hide_name a .juiz_sps_icon { margin-right:0; }
