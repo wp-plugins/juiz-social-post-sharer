@@ -4,12 +4,12 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Donate</a>
 Author: Geoffrey Crofte
-Version: 1.2.1
+Version: 1.2.2
 Author URI: http://crofte.fr
 License: GPLv2 or later 
 */
 
-/*
+/**
 
 Copyright 2012  Geoffrey Crofte  (email : support@creativejuiz.com)
 
@@ -28,10 +28,10 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-*/
+**/
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.2.1' );
+define( 'JUIZ_SPS_VERSION',		 '1.2.2' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -77,10 +77,16 @@ if (!is_admin()) {
 
 			global $post;
 
+			$image = has_post_thumbnail( $post->ID ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ) : '';
+
 			$juiz_sps_content = '';
 			$juiz_sps_options = get_option( JUIZ_SPS_SETTING_NAME );
 
 			// some markup filters
+			$hide_intro_phrase = apply_filters('juiz_sps_hide_intro_phrase', false); 
+			$div = apply_filters('juiz_sps_container_tag', 'div');
+			$p = apply_filters('juiz_sps_phrase_tag', 'p');
+
 			$ul = apply_filters('juiz_sps_list_container_tag', 'ul'); 
 			$li = apply_filters('juiz_sps_list_of_item_tag', 'li');
 			$before_the_sps_content = apply_filters('juiz_sps_before_the_sps', '');
@@ -90,6 +96,8 @@ if (!is_admin()) {
 			$before_first_i = apply_filters('juiz_sps_before_first_item', '');
 			$after_last_i = apply_filters('juiz_sps_after_last_item', '');
 			$container_classes = apply_filters('juiz_sps_container_classes', '');
+			
+			$rel_nofollow = apply_filters('juiz_sps_links_nofollow', 'rel="nofollow"');
 
 			// classes and attributes options
 			$juiz_sps_target_link = (isset($juiz_sps_options['juiz_sps_target_link']) && $juiz_sps_options['juiz_sps_target_link']==1) ? ' target="_blank"' : '';
@@ -98,8 +106,8 @@ if (!is_admin()) {
 
 			// beginning markup
 			$juiz_sps_content  = $before_the_sps_content;
-			$juiz_sps_content .= '<div class="juiz_sps_links '.$container_classes.' juiz_sps_displayed_'.$juiz_sps_display_where.'">';
-			$juiz_sps_content .= '<p class="screen-reader-text juiz_sps_maybe_hidden_text">'.__('Share the post','jsps_lang').' "'.get_the_title().'"</p>';
+			$juiz_sps_content .= '<'.$div.' class="juiz_sps_links '.$container_classes.' juiz_sps_displayed_'.$juiz_sps_display_where.'">';
+			$juiz_sps_content .= $hide_intro_phrase ? '' : '<'.$p.' class="screen-reader-text juiz_sps_maybe_hidden_text">'.__('Share the post','jsps_lang').' "'.get_the_title().'"</'.$p.'>';
 			$juiz_sps_content .= $before_the_list;
 			$juiz_sps_content .= '<'.$ul.' class="juiz_sps_links_list'.$juiz_sps_hidden_name_class.'">';
 			$juiz_sps_content .= $before_first_i;
@@ -139,7 +147,12 @@ if (!is_admin()) {
 							break;
 
 						case "facebook" :
-							$api_link = 'https://www.facebook.com/sharer/sharer.php?u='.$url;
+							if ($image != '') {
+								$api_link = 'https://www.facebook.com/dialog/feed?app_id=329563043837627&amp;link='.$url.'&amp;picture='.$image[0].'&amp;name='.get_the_title().'&amp;caption='.get_bloginfo('name').'&amp;description=Test&amp;redirect_uri='.$url;
+							}
+							else {
+								$api_link = 'https://www.facebook.com/sharer/sharer.php?u='.$url;
+							}
 							$api_text = __('Share this article on Facebook','jsps_lang');
 							break;
 
@@ -149,7 +162,13 @@ if (!is_admin()) {
 							break;
 
 						case "pinterest" :
-							$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
+							
+							if ($image != '') {
+								$api_link = 'http://pinterest.com/pin/create/bookmarklet/?media='.$image[0].'&amp;url='.$url.'&amp;title='.get_the_title().'&amp;description='.get_the_excerpt();
+							}
+							else {
+								$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
+							}
 							$api_text = __('Share an image of this article on Pinterest','jsps_lang');
 							break;
 
@@ -179,12 +198,18 @@ if (!is_admin()) {
 							break;
 
 						case "mail" :
-							$api_link = 'mailto:?subject='.$juiz_sps_options['juiz_sps_mail_subject'].'&amp;body='.$juiz_sps_options['juiz_sps_mail_body']." : ".$url;
+							if (strpos($juiz_sps_options['juiz_sps_mail_body'], '%%') || strpos($juiz_sps_options['juiz_sps_mail_subject'], '%%') ) {
+								$api_link = esc_attr('mailto:?subject='.$juiz_sps_options['juiz_sps_mail_subject'].'&amp;body='.$juiz_sps_options['juiz_sps_mail_body']);
+								$api_link = preg_replace(array('#%%title%%#', '#%%siteurl%%#', '#%%permalink%%#'), array(get_the_title(), get_site_url(), get_permalink()), $api_link);
+							}
+							else {
+								$api_link = 'mailto:?subject='.$juiz_sps_options['juiz_sps_mail_subject'].'&amp;body='.$juiz_sps_options['juiz_sps_mail_body']." : ".$url;
+							}
 							$api_text = __('Share this article with a friend (email)','jsps_lang');
 							break;
 					}
 					$network_name = isset($v[1]) ? $v[1] : $k;
-					$juiz_sps_content .= '<'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.$api_link.'" rel="nofollow" title="'.$api_text.'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon"></span><span class="juis_sps_network_name">'.$network_name.'</span></a></'.$li.'>';
+					$juiz_sps_content .= '<'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.$api_link.'" '.$rel_nofollow.' title="'.$api_text.'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon"></span><span class="juis_sps_network_name">'.$network_name.'</span></a></'.$li.'>';
 
 				}
 			}
@@ -192,7 +217,7 @@ if (!is_admin()) {
 			$juiz_sps_content .= $after_last_i;
 			$juiz_sps_content .= '</'.$ul.'>';
 			$juiz_sps_content .= $after_the_list;
-			$juiz_sps_content .= '</div>';
+			$juiz_sps_content .= '</'.$div.'>';
 			$juiz_sps_content .= $after_the_sps_content;
 
 
@@ -228,7 +253,7 @@ if (!is_admin()) {
 				$singular_options = $juiz_sps_options['juiz_sps_display_in_types'];
 				unset($singular_options['all_lists']);
 
-				$is_lists_authorized = (is_archive() || is_front_page() || is_search() || is_tag() || is_post_type_archive()) && $is_all_lists ? true : false;
+				$is_lists_authorized = (is_archive() || is_front_page() || is_search() || is_tag() || is_post_type_archive() || is_home()) && $is_all_lists ? true : false;
 				$is_singular = is_singular($singular_options);
 
 				if ( $is_singular || $is_lists_authorized ) {
@@ -244,6 +269,9 @@ if (!is_admin()) {
 								break;
 							case 'both' :
 								return $jsps_links.$content.$jsps_links;
+								break;
+							case 'nowhere' :
+								return $content;
 								break;
 							default :
 								return $content.$jsps_links;
@@ -273,8 +301,10 @@ if (!is_admin()) {
 				'buttons' 	=> 'facebook,twitter,mail,google,stumbleupon,linkedin,pinterest,viadeo,digg,weibo'
 			), $atts);
 			
+			// buttons become array ("digg,mail", "digg ,mail", "digg, mail", "digg , mail", are right syntaxes)
 			$jsps_networks = preg_split('#[\s+,\s+]#', $atts['buttons']);
 
+			
 			ob_start();
 			juiz_sps($jsps_networks); //do an echo
 			$jsps_sc_output = ob_get_contents();

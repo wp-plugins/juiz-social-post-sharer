@@ -1,10 +1,10 @@
-﻿=== Juiz Social Post Sharer ===
+=== Juiz Social Post Sharer ===
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -53,7 +53,7 @@ Languages available:
 
 Note: the administration page is compatible with <a href="http://wordpress.org/extend/plugins/juiz-smart-mobile-admin" target="_blank">Juiz Smart Mobile Admin</a>
 
-Next updates:
+Next major updates:
 
 * Add a counter for each social network
 * Write CSS directly in HTML (head) for mobile performance
@@ -111,7 +111,7 @@ Langues disponibles :
 
 Note : la page d'administration est compatible avec <a href="http://wordpress.org/extend/plugins/juiz-smart-mobile-admin" target="_blank">Juiz Smart Mobile Admin</a>
 
-Prochaines mises à jour :
+Prochaines mises à jour majeure :
 
 * Ajout d'un compteur pour chaque réseau social
 * Écriture du CSS directement dans le HTML (head) pour des raisons de performance sur mobile
@@ -140,6 +140,10 @@ You can use one of both method :
 
 == Frequently Asked Questions ==
 
+Find a complete documentation on <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">this official documentation</a>
+
+= I can't just use shortcode by deactivating all the checkbox display option in admin option page? since 1.2.0 =
+Yes, it's a bug, please, use the plugin version 1.2.2. 
 
 = New style is not visible? =
 Please update to 1.1.3
@@ -153,7 +157,21 @@ Deactivate and reactivate the plugin to force the options rebuild.
 1. Themes available
 2. After a post
 
+== Other plugins ==
+
+Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://profiles.wordpress.org/creativejuiz/</a>
+
+
 == Changelog ==
+
+= 1.2.2 =
+* New: Facebook and Pinterest new API integrated
+* New hook to remove `rel="nofollow"` on links
+* New hook to customize container element (div by default)
+* New hook to remove intro sentence, or its container tag
+* New: to perform customization, you can use %%title%% (insert the post title), %%siteurl%% (insert the site URL) or %%permalink%% (insert the post URL) variables
+* Bug fix: you can now use shortcode or template function only by choosing option "I'm a ninja, I want to use the shortcode only!"
+* Translation updates (French, English)
 
 = 1.2.1 =
 * [juiz_sps] shortcode added (you now have [juiz_social] and [juiz_sps])
@@ -198,6 +216,9 @@ Deactivate and reactivate the plugin to force the options rebuild.
 * The first beta version
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+Several bug fixes, you can update ;)
 
 = 1.1.0 =
 Some new things, update it :)

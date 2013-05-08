@@ -324,6 +324,7 @@
 	<p>This plugin allows you to change some parts of its structure without broke the core.<br />The following samples of code can be inserted in the functions.php file.</p>
 	
 	
+
 	<h3>Hook: <code>juiz_sps_before_the_sps</code></h3>
 	<p>Add a content just before the container of this plugin (a <code>div</code>)</p>
 <pre class="code"><code class="php">&lt;?php
@@ -334,6 +335,8 @@ if( !function_exists('before_the_jsps_plugin')) {
 }
 add_filter('juiz_sps_before_the_sps', 'before_the_jsps_plugin');
 ?&gt;</code></pre>
+
+
 
 	<h3>Hook: <code>juiz_sps_after_the_sps</code></h3>
 	<p>Add a content just after the container of this plugin (a <code>div</code>).</p>
@@ -348,6 +351,31 @@ if( !function_exists('after_the_jsps_plugin')) {
 }
 add_filter('juiz_sps_after_the_sps', 'after_the_jsps_plugin');
 ?&gt;</code></pre>
+
+	
+	<h3>Hook: <code>juiz_sps_container_tag</code></h3>
+	<p>Change the big container tag of the list (<code>&lt;div&gt;</code>) by another, for example:</p>
+	<pre class="code"><code class="php">&lt;?php
+	if( !function_exists('replacing_by_span')) {
+		function replacing_by_span() {
+			return 'span';
+		}
+	}
+	add_filter('juiz_sps_container_tag', 'replacing_by_span');
+	?&gt;</code></pre>
+
+
+	<h3>Hook: <code>juiz_sps_phrase_tag</code></h3>
+	<p>Change the intro phrase tag (hidden with default style) (<code>&lt;p&gt;</code>) by another, for example:</p>
+	<pre class="code"><code class="php">&lt;?php
+	if( !function_exists('replacing_by_span')) {
+		function replacing_by_span() {
+			return 'span';
+		}
+	}
+	add_filter('juiz_sps_phrase_tag', 'replacing_by_span');
+	?&gt;</code></pre>
+	<p>If you want to remove this sentence, see <a href="#juiz_sps_hide_intro_phrase">the <code>juiz_sps_hide_intro_phrase</code> hook</a></p>
 
 
 	<h3>Hook: <code>juiz_sps_list_container_tag</code></h3>
@@ -417,7 +445,7 @@ add_filter('juiz_sps_after_the_list', 'content_after_jsps_list');
 <pre class="code"><code class="php">&lt;?php
 if( !function_exists('content_before_jsps_first_item')) {
 	function content_before_jsps_first_item() {
-		return '&lt;li class="juiz_sps_link_myown&gt;&lt;a href="#"&gt;MyOwn link&lt;/a&gt;&lt;/li&gt;';
+		return '&lt;li class="juiz_sps_link_myown"&gt;&lt;a href="#"&gt;MyOwn link&lt;/a&gt;&lt;/li&gt;';
 	}
 }
 add_filter('juiz_sps_before_first_item', 'content_before_jsps_first_item');
@@ -429,12 +457,24 @@ add_filter('juiz_sps_before_first_item', 'content_before_jsps_first_item');
 <pre class="code"><code class="php">&lt;?php
 if( !function_exists('content_after_jsps_last_item')) {
 	function content_after_jsps_last_item() {
-		return '&lt;li class="juiz_sps_link_myown&gt;&lt;a href="#"&gt;MyOwn link&lt;/a&gt;&lt;/li&gt;';
+		return '&lt;li class="juiz_sps_link_myown"&gt;&lt;a href="#"&gt;MyOwn link&lt;/a&gt;&lt;/li&gt;';
 	}
 }
 add_filter('juiz_sps_after_last_item', 'content_after_jsps_last_item');
 ?&gt;</code></pre>
 
+
+
+<h3 id="juiz_sps_hide_intro_phrase">Hook: <code>juiz_sps_hide_intro_phrase</code></h3>
+	<p>If you want the remove the introduction sentence of the plugin ("Share the [post-title] article").</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('hide_the_sps_intro_sentence')) {
+	function hide_the_sps_intro_sentence() {
+		return true;
+	}
+}
+add_filter('juiz_sps_hide_intro_phrase', 'hide_the_sps_intro_sentence');
+?&gt;</code></pre>
 
 <h3>Hook: <code>juiz_sps_the_permalink</code></h3>
 	<p>Customizes the link shared by users. Be carefull when you customize permalinks, you need a permanent way to find your content ;) (don't create 404 errors)</p>
@@ -448,11 +488,30 @@ add_filter('juiz_sps_the_permalink', 'jsps_custom_permalink');
 ?&gt;</code></pre>
 
 
+<h3>Hook: <code>juiz_sps_links_nofollow</code></h3>
+	<p>By default, links are nofollow-links. If you need to remove this attribute:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('custom_links_attributes')) {
+	function custom_links_attributes() {
+		return ''; // you can add new attributes instead... just an idea ;)
+	}
+}
+add_filter('juiz_sps_links_nofollow', 'custom_links_attributes');
+?&gt;</code></pre>
+
+
 	
 
 	<h2 id="faq">FAQ</h2>
 	
 	<dl>
+		<dt>
+			I can't just use shortcode by deactivating all the checkbox display option in admin option page? <span class="since">since 1.2.0</span>
+		</dt>
+		<dd>
+			Yes, it's a bug, please, use the plugin version 1.2.2.
+		</dd>
+
 		<dt>
 			New style is not visible? <span class="since">since 1.1.2</span>
 		</dt>

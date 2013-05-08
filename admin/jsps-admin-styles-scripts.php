@@ -4,6 +4,7 @@
 		<style rel="stylesheet">
 			#juiz-sps .error { margin: 20px 20px 20px 48px; }
 			#juiz-sps .submit { margin-bottom: 3em }
+			#juiz-sps th .submit { font-weight:normal; margin-bottom: 0 }
 			#juiz-sps .error em { font-weight: normal; }
 			#juiz-sps .jsps_info { max-width:800px; padding: 15px; margin-left: 48px; color: #888; line-height: 1.6;  background: #f2f2f2; box-shadow: 0 0 3px #999;}
 			#juiz-sps h3 { font-size: 1.65em; color: #444; font-weight:normal; }
@@ -63,6 +64,7 @@
 			.juiz_disabled th {color: #999;}
 
 			.juiz_bottom_links em {display:block; margin-bottom: .5em; font-style:italic; color:#777;}
+			#juiz_sps_mail_body {width: 100%; max-width: 400px;}
 
 			@media (max-width:640px) {
 				#juiz-sps .jsps_info { margin-left: 0; }
