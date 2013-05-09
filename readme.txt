@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, post, share
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -163,6 +163,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 1.2.3 =
+* Removes new Facebook API because of the complexity of use for the user (old API always works)
 
 = 1.2.2 =
 * New: Facebook and Pinterest new API integrated
