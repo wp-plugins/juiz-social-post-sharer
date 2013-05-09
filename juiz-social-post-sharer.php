@@ -147,12 +147,7 @@ if (!is_admin()) {
 							break;
 
 						case "facebook" :
-							if ($image != '') {
-								$api_link = 'https://www.facebook.com/dialog/feed?app_id=329563043837627&amp;link='.$url.'&amp;picture='.$image[0].'&amp;name='.get_the_title().'&amp;caption='.get_bloginfo('name').'&amp;description=Test&amp;redirect_uri='.$url;
-							}
-							else {
-								$api_link = 'https://www.facebook.com/sharer/sharer.php?u='.$url;
-							}
+							$api_link = 'https://www.facebook.com/sharer/sharer.php?u='.$url;
 							$api_text = __('Share this article on Facebook','jsps_lang');
 							break;
 
