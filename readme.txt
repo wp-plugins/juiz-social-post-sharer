@@ -3,8 +3,8 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, post, share
 Requires at least: 3.3
-Tested up to: 3.5
-Stable tag: 1.2.3
+Tested up to: 3.5.1
+Stable tag: 1.2.4
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -142,6 +142,10 @@ You can use one of both method :
 
 Find a complete documentation on <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">this official documentation</a>
 
+= I have a fatal error or a 500 server error since update to 1.2.3 =
+Yes, you surely use pinterest button. It's a bug, update to 1.2.4.
+Thank you.
+
 = I can't just use shortcode by deactivating all the checkbox display option in admin option page? since 1.2.0 =
 Yes, it's a bug, please, use the plugin version 1.2.2. 
 
@@ -163,6 +167,11 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 1.2.4 =
+* IMPORTANT: bug fix for Pinterest button's users (thanks to <a href="http://wordpress.org/support/topic/getting-500-internal-error-on-some-pages?replies=6#post-4204030">jamesdodd</a>)
+* IMPORTANT: hook juiz_sps_the_permalink replaced by juiz_sps_the_shared_permalink
+* New hook : juiz_sps_the_shared_permalink_for_[network] (see the documentation)
 
 = 1.2.3 =
 * Removes new Facebook API because of the complexity of use for the user (old API always works)

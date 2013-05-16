@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Donate</a>
 Author: Geoffrey Crofte
-Version: 1.2.3
+Version: 1.2.4
 Author URI: http://crofte.fr
 License: GPLv2 or later 
 */
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.2.3' );
+define( 'JUIZ_SPS_VERSION',		 '1.2.4' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -77,6 +77,7 @@ if (!is_admin()) {
 
 			global $post;
 
+			// tests if post has thumbnail (useful for Pinterest API)
 			$image = has_post_thumbnail( $post->ID ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ) : '';
 
 			$juiz_sps_content = '';
@@ -113,10 +114,13 @@ if (!is_admin()) {
 			$juiz_sps_content .= $before_first_i;
 
 			// networks to display
-			// 2 differents results : using hook (options) or using shortcode/template-function (array())
-			$juis_sps_networks = '';
+			// 2 differents results by : 
+			// -- using hook (options from admin panel)
+			// -- using shortcode/template-function (the array $networks in parameter of this function)
+			$juis_sps_networks = array();
 
 			if ( count($networks) > 0 ) {
+				// compare $juiz_sps_options['juiz_sps_networks'] array and $networks array and conserve form the first one all that correspond to the second one's keys
 				$juis_sps_networks = array();
 				foreach($juiz_sps_options['juiz_sps_networks'] as $k => $v) {
 					if(in_array($k, $networks)) {
@@ -136,7 +140,8 @@ if (!is_admin()) {
 					$api_link = $api_text = '';
 					$text = urlencode($post->post_title);
 					$url = urlencode(get_permalink());
-					$url = apply_filters('juiz_sps_the_permalink', $url);
+					$url = apply_filters('juiz_sps_the_shared_permalink', $url);
+					$url = apply_filters('juiz_sps_the_shared_permalink_for_'.$k, $url);
 
 					$twitter_user = $juiz_sps_options['juiz_sps_twitter_user'] != '' ? "&amp;related=".$juiz_sps_options['juiz_sps_twitter_user']."&amp;via=". $juiz_sps_options['juiz_sps_twitter_user'] : '';
 
@@ -159,7 +164,7 @@ if (!is_admin()) {
 						case "pinterest" :
 							
 							if ($image != '') {
-								$api_link = 'http://pinterest.com/pin/create/bookmarklet/?media='.$image[0].'&amp;url='.$url.'&amp;title='.get_the_title().'&amp;description='.get_the_excerpt();
+								$api_link = 'http://pinterest.com/pin/create/bookmarklet/?media='.$image[0].'&amp;url='.$url.'&amp;title='.get_the_title().'&amp;description='.$post->post_excerpt;
 							}
 							else {
 								$api_link = "javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
@@ -234,6 +239,7 @@ if (!is_admin()) {
 	// write buttons in content
 	add_action('the_content', 'juiz_sps_print_links', 10, 1);
 	add_action('the_excerpt', 'juiz_sps_print_links', 10, 1);
+
 	if ( !function_exists('juiz_sps_print_links')) {
 		function juiz_sps_print_links($content) {
 			

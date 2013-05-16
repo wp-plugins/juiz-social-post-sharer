@@ -476,7 +476,7 @@ if( !function_exists('hide_the_sps_intro_sentence')) {
 add_filter('juiz_sps_hide_intro_phrase', 'hide_the_sps_intro_sentence');
 ?&gt;</code></pre>
 
-<h3>Hook: <code>juiz_sps_the_permalink</code></h3>
+<h3>Hook: <code>juiz_sps_the_permalink</code> <span class="since">(depreciated)</span> or <code>juiz_sps_the_shared_permalink</code> <span class="since">(since v1.2.4)</span></h3>
 	<p>Customizes the link shared by users. Be carefull when you customize permalinks, you need a permanent way to find your content ;) (don't create 404 errors)</p>
 <pre class="code"><code class="php">&lt;?php
 if( !function_exists('jsps_custom_permalink')) {
@@ -484,8 +484,22 @@ if( !function_exists('jsps_custom_permalink')) {
 		return $url.'?fromJsps';
 	}
 }
-add_filter('juiz_sps_the_permalink', 'jsps_custom_permalink');
+add_filter('juiz_sps_the_shared_permalink', 'jsps_custom_permalink');
 ?&gt;</code></pre>
+
+
+
+<h3>Hook: <code>juiz_sps_the_shared_permalink_for_<em>[network]</em></code><span class="since">(since v1.2.4)</span></h3>
+	<p>Customizes the link shared by users only for the targeted network. Example for Twitter network:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('jsps_custom_permalink_for_twitter')) {
+	function jsps_custom_permalink($url) {
+		return $url.'?doWhatYouWant=twitter';
+	}
+}
+add_filter('juiz_sps_the_shared_permalink_for_twitter', 'jsps_custom_permalink_for_twitter');
+?&gt;</code></pre>
+
 
 
 <h3>Hook: <code>juiz_sps_links_nofollow</code></h3>
@@ -505,6 +519,14 @@ add_filter('juiz_sps_links_nofollow', 'custom_links_attributes');
 	<h2 id="faq">FAQ</h2>
 	
 	<dl>
+		<dt>
+			I have a fatal error or a 500 server error since update to 1.2.3 <span class="since">since 1.2.3</span>
+		</dt>
+		<dd>
+			Yes, you surely use pinterest button. It's a bug, update to 1.2.4.<br />
+			Thank you.
+		</dd>
+
 		<dt>
 			I can't just use shortcode by deactivating all the checkbox display option in admin option page? <span class="since">since 1.2.0</span>
 		</dt>
@@ -537,7 +559,7 @@ add_filter('juiz_sps_links_nofollow', 'custom_links_attributes');
 	<div id="footer"><p>Documentation for your life easier !<br />
 	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" title="Go to Paypal Website" class="button" target="_blank">Donate</a>
 	<a href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte" target="_blank" class="tweet button">Tweet it</a></p>
-	<p class="last-update">v 1.2.1<br />Last update: 2012, 17 December.</p>
+	<p class="last-update">v 1.2.4<br />Last update: 2013, 17 May.</p>
 
 	</div>
 </body>
