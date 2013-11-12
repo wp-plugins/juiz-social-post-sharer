@@ -24,6 +24,7 @@
 			.jsps_demo_icon_digg	 	{ background-position: -112px -16px }
 			.jsps_demo_icon_stumbleupon	{ background-position: -128px -16px }
 			.jsps_demo_icon_weibo		{ background-position: -144px -16px }
+			.jsps_demo_icon_vk			{ background-position: -160px -16px }
 
 			:checked + label .jsps_demo_icon_twitter 	{ background-position: 0 0 }
 			:checked + label .jsps_demo_icon_google 	{ background-position: -16px 0 }
@@ -35,6 +36,7 @@
 			:checked + label .jsps_demo_icon_digg	 	{ background-position: -112px 0 }
 			:checked + label .jsps_demo_icon_stumbleupon{ background-position: -128px 0 }
 			:checked + label .jsps_demo_icon_weibo		{ background-position: -144px 0 }
+			:checked + label .jsps_demo_icon_vk			{ background-position: -160px 0 }
 
 			#juiz-sps input[type="radio"] + label { display: inline-block; vertical-align: middle; margin-right: 20px;}
 			.juiz_sps_options_p { margin: .2em 5% .2em 0; }
@@ -45,7 +47,8 @@
 			[for="jsps_style_2"] .juiz_sps_demo_styles { background-position: 0 0 }
 			[for="jsps_style_3"] .juiz_sps_demo_styles { height: 36px; background-position: 0 -93px }
 			[for="jsps_style_4"] .juiz_sps_demo_styles { height: 36px; background-position: 0 -129px }
-			[for="jsps_style_5"] .juiz_sps_demo_styles { height: 41px; background-position: 0 -165px }
+			[for="jsps_style_5"] .juiz_sps_demo_styles { height: 39px; background-position: 0 -165px }
+			[for="jsps_style_6"] .juiz_sps_demo_styles { height: 36px; background-position: 0 -204px }
 			.juiz_sps_style_name { display:inline-block; margin: 4px 0 0 2px; color: #777;}
 			.juiz_sps_demo_hide {display:block; width:592px; height:37px; background:url('.JUIZ_SPS_PLUGIN_URL.'img/demo-sprites.png) no-repeat 0 -52px}
 

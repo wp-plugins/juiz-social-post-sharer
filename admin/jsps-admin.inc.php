@@ -26,6 +26,7 @@ function juiz_sps_activation() {
 											"digg"	 		=>	array(0, "Digg"),
 											"stumbleupon"	=>	array(0, "StumbleUpon"),
 											"weibo"			=>	array(0, "Weibo"), // new 1.2.0
+											"vk"			=>	array(0, "VKontakte"), // new 1.3.0
 											"mail"			=>	array(1, "E-mail")
 										),
 			'juiz_sps_counter'			=> 0,
@@ -36,7 +37,12 @@ function juiz_sps_activation() {
 			'juiz_sps_display_where'	=> 'bottom',
 			'juiz_sps_write_css_in_html'=> 0,
 			'juiz_sps_mail_subject'		=> __('Visit this link find on %%siteurl%%','jsps_lang'),
-			'juiz_sps_mail_body'		=> __('Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)','jsps_lang')
+			'juiz_sps_mail_body'		=> __('Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)','jsps_lang'),
+			'juiz_sps_force_pinterest_snif' => 0,
+			'juiz_sps_colors' 			=> array(
+											"bg_color"	=> '', 
+											"txt_color" => ''
+										)
 		);
 		
 		update_option( JUIZ_SPS_SETTING_NAME , $default_array);
@@ -51,22 +57,42 @@ function juiz_sps_activation() {
 				'juiz_sps_display_where'	=> 'bottom',
 				'juiz_sps_write_css_in_html'=> 0,
 				'juiz_sps_mail_subject'		=> __('Visit this link find on %%siteurl%%','jsps_lang'),
-				'juiz_sps_mail_body'		=> __('Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)','jsps_lang')
+				'juiz_sps_mail_body'		=> __('Hi, I found this information for you : "%%title%%"! This is the direct link: %%permalink%% Have a nice day :)','jsps_lang'),
+				'juiz_sps_force_pinterest_snif' => 0
 			);
 
 			$updated_array = array_merge($juiz_sps_options, $new_options);
-
 			update_option( JUIZ_SPS_SETTING_NAME , $updated_array);
 		}
 
+		// if was version under 1.2.3
+		if ( !isset($juiz_sps_options['juiz_sps_force_pinterest_snif']) ) {
+			$new_options = array (
+				'juiz_sps_force_pinterest_snif' => 0
+			);
+
+			$updated_array = array_merge($juiz_sps_options, $new_options);
+			update_option( JUIZ_SPS_SETTING_NAME , $updated_array);
+		}
+
+		// if was version under 1.3.0
+		if ( !isset($juiz_sps_options['juiz_sps_networks']['vk']) ) {
+
+			$juiz_sps_options['juiz_sps_networks']['vk'] = array(0, "VKontakte");
+			$juiz_sps_options['juiz_sps_colors'] = array("bg_color"=> '', "txt_color" => ''); // for next update
+
+			update_option( JUIZ_SPS_SETTING_NAME ,$juiz_sps_options);
+		}
 	}
 }
 
 // description setting page
-add_filter( 'plugin_action_links_'.plugin_basename( JUIZ_SPS_FILE ), 'juiz_sps_plugin_action_links',  10, 2);
-function juiz_sps_plugin_action_links( $links, $file ) {
-	$links[] = '<a href="'.admin_url('options-general.php?page='.JUIZ_SPS_SLUG).'">' . __('Settings') .'</a>';
-	return $links;
+if (!function_exists('juiz_sps_plugin_action_links')) {
+	add_filter( 'plugin_action_links_'.plugin_basename( JUIZ_SPS_FILE ), 'juiz_sps_plugin_action_links',  10, 2);
+	function juiz_sps_plugin_action_links( $links, $file ) {
+		$links[] = '<a href="'.admin_url('options-general.php?page='.JUIZ_SPS_SLUG).'">' . __('Settings') .'</a>';
+		return $links;
+	}
 }
 
 
@@ -76,25 +102,68 @@ function juiz_sps_plugin_action_links( $links, $file ) {
  
  
 // Settings page in admin menu
-
-add_action('admin_menu', 'add_juiz_sps_settings_page');
-function add_juiz_sps_settings_page() {
-	add_submenu_page( 
-		'options-general.php', 
-		__('Social Post Sharer', 'jsps_lang'),
-		__('Social Post Sharer', 'jsps_lang'),
-		'administrator',
-		JUIZ_SPS_SLUG ,
-		'juiz_sps_settings_page' 
-	);
+if (!function_exists('add_juiz_sps_settings_page')) {
+	add_action('admin_menu', 'add_juiz_sps_settings_page');
+	function add_juiz_sps_settings_page() {
+		add_submenu_page( 
+			'options-general.php', 
+			__('Social Post Sharer', 'jsps_lang'),
+			__('Social Post Sharer', 'jsps_lang'),
+			'administrator',
+			JUIZ_SPS_SLUG ,
+			'juiz_sps_settings_page' 
+		);
+	}
 }
 
 // Some styles for settings page in admin
-add_action( 'admin_head-settings_page_'.JUIZ_SPS_SLUG, 'juiz_sps_custom_admin_header');
-function juiz_sps_custom_admin_header() {
-	include_once ('jsps-admin-styles-scripts.php');
+if ( !function_exists('juiz_sps_custom_admin_header')) {
+	add_action( 'admin_head-settings_page_'.JUIZ_SPS_SLUG, 'juiz_sps_custom_admin_header');
+	function juiz_sps_custom_admin_header() {
+		include_once ('jsps-admin-styles-scripts.php');
+	}
 }
 
+/*
+ *****
+ ***** Section for Metabox
+ *****
+ */
+if ( !function_exists('juiz_sps_metaboxes')) {
+	add_action('add_meta_boxes','juiz_sps_metaboxes');
+	function juiz_sps_metaboxes(){
+
+		$options = get_option( JUIZ_SPS_SETTING_NAME );
+		$pts	 = get_post_types( array('public'=> true, 'show_ui' => true, '_builtin' => true) );
+		$cpts	 = get_post_types( array('public'=> true, 'show_ui' => true, '_builtin' => false) );
+
+		foreach ( $pts as $pt ) {
+			if (in_array($pt, $options['juiz_sps_display_in_types'])) {
+				add_meta_box('jsps_hide_buttons', __('Sharing buttons', jsps_lang), 'jsps_hide_buttons_f', $pt, 'side', 'default');
+			}
+		}
+		foreach ( $cpts as $cpt ) {
+			if (in_array($cpt, $options['juiz_sps_display_in_types'])) {
+				add_meta_box('jsps_hide_buttons', __('Sharing buttons', jsps_lang), 'jsps_hide_buttons_f', $cpt, 'side', 'default');
+			}
+		}
+	}
+}
+// build the metabox
+if ( !function_exists('jsps_hide_buttons_f')) {
+	function jsps_hide_buttons_f($post){
+		$checked = (get_post_meta($post->ID,'_jsps_metabox_hide_buttons',true)=='on') ? ' checked="checked"' : '';
+		echo '<input id="jsps_metabox_hide_buttons" type="checkbox"'.$checked.' name="jsps_metabox_hide_buttons" /> <label for="jsps_metabox_hide_buttons">'. __('Hide sharing buttons for this post.', 'jsps_lang') .'</label>';
+	}
+}
+// save datas
+if ( !function_exists('jsps_save_metabox')) {
+	add_action('save_post','jsps_save_metabox');
+	function jsps_save_metabox($post_ID) {
+		$data = isset($_POST['jsps_metabox_hide_buttons']) ? 'on' : 'off';
+		update_post_meta($post_ID,'_jsps_metabox_hide_buttons', $data);
+	}
+}
 
 /*
  *****
@@ -122,7 +191,8 @@ function add_juiz_sps_plugin_options() {
 	add_settings_section('juiz_sps_plugin_advanced', __('Advanced settings','jsps_lang'), 'juiz_sps_section_text_advanced', JUIZ_SPS_SLUG);
 	add_settings_field('juiz_sps_hide_social_name', __('Show only social icon?', 'jsps_lang').'<br /><em>('.__('hide text, show it on mouse over or focus', 'jsps_lang').')</em>', 'juiz_sps_setting_radio_hide_social_name', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
 	add_settings_field('juiz_sps_target_link', __('Open links in a new window?', 'jsps_lang').'<br /><em>('.sprintf(__('adds a %s attribute', 'jsps_lang'), '<code>target="_blank"</code>').')</em>', 'juiz_sps_setting_radio_target_link', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
-	add_settings_field('juiz_sps_counter', __('Display counter of sharing?','jsps_lang').'<br /><em>('.__('need JavaScript','jsps_lang').')</em>', 'juiz_sps_setting_radio_counter', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
+	add_settings_field('juiz_sps_force_pinterest_snif', __('Force Pinterest button sniffing all images of the page?', 'jsps_lang').'<br /><em>('.__('need JavaScript', 'jsps_lang').')</em>', 'juiz_sps_setting_radio_force_snif', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
+	add_settings_field('juiz_sps_counter', __('Display counter of sharing?','jsps_lang').'<br /><em>('.__('need JavaScript','jsps_lang').')</em> <strong>BETA</strong>', 'juiz_sps_setting_radio_counter', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
 	add_settings_field('juiz_sps_write_css_in_html', __('Write CSS code in HTML head?', 'jsps_lang').'<br /><em>('.__('good thing for performance on mobile', 'jsps_lang').')</em>', 'juiz_sps_setting_radio_css_in_html', JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
 	add_settings_field('juiz_sps_temp_submit_3', get_submit_button(__('Save Changes'), 'secondary'), create_function('','return "";'), JUIZ_SPS_SLUG, 'juiz_sps_plugin_advanced');
 
@@ -142,11 +212,13 @@ function juiz_sps_sanitize($options) {
 	
 	if( is_array( $options['juiz_sps_networks'] ) ) {
 		
-		$temp_array = array('facebook'=>0, 'twitter'=>0, 'google'=>0, 'pinterest'=>0, 'viadeo'=>0, 'linkedin'=>0, 'digg'=>0, 'stumbleupon'=>0, 'weibo'=>0, 'mail' => 0);
+		$temp_array = array('facebook'=>0, 'twitter'=>0, 'google'=>0, 'pinterest'=>0, 'viadeo'=>0, 'linkedin'=>0, 'digg'=>0, 'stumbleupon'=>0, 'weibo'=>0, 'mail' => 0, 'vk' => 0);
 		$juiz_sps_opt = get_option ( JUIZ_SPS_SETTING_NAME );
 
 		// new option (1.2.0)
 		if ( !in_array('weibo', $juiz_sps_opt['juiz_sps_networks']) ) $juiz_sps_opt['juiz_sps_networks']['weibo'] = array(0, "Weibo");
+		// new option (1.3.0)
+		if ( !in_array('vk', $juiz_sps_opt['juiz_sps_networks']) ) $juiz_sps_opt['juiz_sps_networks']['vk'] = array(0, "VKontakte");
 
 		foreach( $options['juiz_sps_networks'] as $nw )
 			$temp_array[$nw]=1;
@@ -158,7 +230,7 @@ function juiz_sps_sanitize($options) {
 	}
 
 
-	$newoptions['juiz_sps_style'] = $options['juiz_sps_style']>=1 && $options['juiz_sps_style']<=5 ? (int)$options['juiz_sps_style'] : 1;
+	$newoptions['juiz_sps_style'] = $options['juiz_sps_style']>=1 && $options['juiz_sps_style']<=6 ? (int)$options['juiz_sps_style'] : 1;
 	$newoptions['juiz_sps_hide_social_name'] = (int)$options['juiz_sps_hide_social_name']==1 ? 1 : 0;
 	$newoptions['juiz_sps_target_link'] = (int)$options['juiz_sps_target_link']==1 ? 1 : 0;
 	$newoptions['juiz_sps_counter'] = (int)$options['juiz_sps_counter']==1 ? 1 : 0;
@@ -178,20 +250,27 @@ function juiz_sps_sanitize($options) {
 	}
 	$newoptions['juiz_sps_display_where'] = in_array($options['juiz_sps_display_where'], array('bottom', 'top', 'both', 'nowhere')) ? $options['juiz_sps_display_where'] : 'bottom';
 	
+
+	// new options (1.2.5)
+	$newoptions['juiz_sps_force_pinterest_snif'] = (int)$options['juiz_sps_force_pinterest_snif']==1 ? 1 : 0;
+	
 	return $newoptions;
 }
 
 // first section text
+if( !function_exists('juiz_sps_section_text')) {
 function juiz_sps_section_text() {
 	echo '<p class="juiz_sps_section_intro">'. __('Here, you can modify default settings of the SPS plugin', 'jsps_lang') .'</p>';
 }
+}
 
 // radio fields styles choice
+if( !function_exists('juiz_sps_setting_radio_style_choice')) {
 function juiz_sps_setting_radio_style_choice() {
 
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
 	if ( is_array($options) ) {
-		$n1 = $n2 = $n3 = $n4 = $n5 = "";
+		$n1 = $n2 = $n3 = $n4 = $n5 = $n6 = "";
 		${'n'.$options['juiz_sps_style']} = " checked='checked'";
 	
 		echo '<p class="juiz_sps_styles_options">
@@ -213,12 +292,18 @@ function juiz_sps_setting_radio_style_choice() {
 				<p class="juiz_sps_styles_options">
 					<input id="jsps_style_5" value="5" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_style]" type="radio" '.$n5.' />
 					<label for="jsps_style_5"><span class="juiz_sps_demo_styles"></span><br /><span class="juiz_sps_style_name">'. __('Modern Style', 'jsps_lang') . ' '.__('by', 'jsps_lang').' <a href="http://tonytrancard.fr" target="_blank">Tony Trancard</a></span></label>
+				</p>
+				<p class="juiz_sps_styles_options">
+					<input id="jsps_style_6" value="6" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_style]" type="radio" '.$n6.' />
+					<label for="jsps_style_6"><span class="juiz_sps_demo_styles"></span><br /><span class="juiz_sps_style_name">'. __('Black', 'jsps_lang') . ' '.__('by', 'jsps_lang').' <a href="http://fandia.p.ht" target="_blank">Fandia</a></span></label>
 				</p>';
 	}
+}
 }
 
 
 // checkboxes fields for networks
+if( !function_exists('juiz_sps_setting_checkbox_network_selection')) {
 function juiz_sps_setting_checkbox_network_selection() {
 	$y = $n = '';
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
@@ -238,8 +323,10 @@ function juiz_sps_setting_checkbox_network_selection() {
 		if ( !is_array($options['juiz_sps_networks']['weibo']) ) echo '<p class="juiz_sps_options_p"><input id="jsps_network_selection_weibo" value="weibo" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_networks][]" type="checkbox"> <label for="jsps_network_selection_weibo"><span class="jsps_demo_icon jsps_demo_icon_weibo"></span>Weibo</label> <em class="jsps_new">('.__('New social network!', 'jsps_lang').')</em></p>';
 	}
 }
+}
 
 // input for twitter username
+if( !function_exists('juiz_sps_setting_input_twitter_user')) {
 function juiz_sps_setting_input_twitter_user() {
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
 	if ( is_array($options) ) {
@@ -249,13 +336,17 @@ function juiz_sps_setting_input_twitter_user() {
 	  	</p>';
 	}
 }
+}
 
 
 // Advanced section text
+if( !function_exists('juiz_sps_section_text_display')) {
 function juiz_sps_section_text_display() {
 	echo '<p class="juiz_sps_section_intro">'. __('You can choose precisely the types of content that will benefit from the sharing buttons.', 'jsps_lang') .'</p>';
 }
+}
 // checkbox for type of content
+if( !function_exists('juiz_sps_setting_checkbox_content_type')) {
 function juiz_sps_setting_checkbox_content_type() {
 	$pts	= get_post_types( array('public'=> true, 'show_ui' => true, '_builtin' => true) );
 	$cpts	= get_post_types( array('public'=> true, 'show_ui' => true, '_builtin' => false) );
@@ -293,9 +384,11 @@ function juiz_sps_setting_checkbox_content_type() {
 	}
 	echo '<p><input type="checkbox" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_display_in_types][]" id="all_lists" value="all_lists" '.$all_lists_selected.'> <label for="all_lists">'.$all_lists_icon.' '. sprintf(__('Lists of articles %s(blog, archives, search results, etc.)%s','jsps_lang'), '<em>','</em>') . '</label></p>';
 }
+}
 
 // where display buttons
 // radio fields styles choice
+if( !function_exists('juiz_sps_setting_radio_where')) {
 function juiz_sps_setting_radio_where() {
 
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
@@ -317,16 +410,20 @@ function juiz_sps_setting_radio_where() {
 			<label for="jsps_w_0">'. __("I'm a ninja, I want to use the shortcode only!", 'jsps_lang') . '</label>';
 			// nowhere option, new in 1.2.2
 }
+}
 
 
 
 // Advanced section text
+if( !function_exists('juiz_sps_section_text_advanced')) {
 function juiz_sps_section_text_advanced() {
 	echo '<p class="juiz_sps_section_intro">'. __('Modify advanced settings of the plugin. Some of them needs JavaScript (only one file loaded)', 'jsps_lang') .'</p>';
+}
 }
 
 
 // radio fields Y or N for hide text
+if( !function_exists('juiz_sps_setting_radio_hide_social_name')) {
 function juiz_sps_setting_radio_hide_social_name() {
 	$y = $n = '';
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
@@ -342,8 +439,10 @@ function juiz_sps_setting_radio_hide_social_name() {
 
 			<span class="juiz_sps_demo_hide"></span>';
 }
+}
 
 // radio fields Y or N for target _blank
+if( !function_exists('juiz_sps_setting_radio_target_link')) {
 function juiz_sps_setting_radio_target_link() {
 	$y = $n = '';
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
@@ -357,8 +456,27 @@ function juiz_sps_setting_radio_target_link() {
 			<input id='jsps_target_link_n' value='0' name='".JUIZ_SPS_SETTING_NAME."[juiz_sps_target_link]' type='radio' ".$n." />
 			<label for='jsps_target_link_n'>". __('No', 'jsps_lang') . "</label>";
 }
+}
+
+// radio fields Y or N for pinterest sniffing
+if( !function_exists('juiz_sps_setting_radio_force_snif')) {
+function juiz_sps_setting_radio_force_snif() {
+	$y = $n = '';
+	$options = get_option( JUIZ_SPS_SETTING_NAME );
+
+	if ( is_array($options) )
+		(isset($options['juiz_sps_force_pinterest_snif']) AND $options['juiz_sps_force_pinterest_snif']==1) ? $y = " checked='checked'" : $n = " checked='checked'";
+	
+	echo '	<input id="jsps_forcer_snif_y" value="1" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_force_pinterest_snif]" type="radio" '.$y.' />
+			<label for="jsps_forcer_snif_y">'. __('Yes', 'jsps_lang') . '</label>
+			
+			<input id="jsps_forcer_snif_n" value="0" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_force_pinterest_snif]" type="radio" '.$n.' />
+			<label for="jsps_forcer_snif_n">'. __('No', 'jsps_lang') . '</label>';
+}
+}
 
 // radio fields Y or N for counter
+if( !function_exists('juiz_sps_setting_radio_counter')) {
 function juiz_sps_setting_radio_counter() {
 
 	$y = $n = '';
@@ -367,15 +485,16 @@ function juiz_sps_setting_radio_counter() {
 	if ( is_array($options) )
 		(isset($options['juiz_sps_counter']) AND $options['juiz_sps_counter']==1) ? $y = " checked='checked'" : $n = " checked='checked'";
 	
-	echo '	<em style="color:#777;">' . __('This option will be enabled for a next version','jsps_lang') . '</em><br />
-			<input id="jsps_counter_y" value="1" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_counter]" type="radio" '.$y.' disabled="disabled" />
-			<label style="color:#777;" for="jsps_counter_y">'. __('Yes', 'jsps_lang') . '</label>
+	echo '	<input id="jsps_counter_y" value="1" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_counter]" type="radio" '.$y.' />
+			<label for="jsps_counter_y">'. __('Yes', 'jsps_lang') . '</label>
 			
-			<input id="jsps_counter_n" value="0" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_counter]" type="radio" '.$n.'  disabled="disabled" />
-			<label style="color:#777;" for="jsps_counter_n">'. __('No', 'jsps_lang') . '</label>';
+			<input id="jsps_counter_n" value="0" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_counter]" type="radio" '.$n.' />
+			<label for="jsps_counter_n">'. __('No', 'jsps_lang') . '</label>';
+}
 }
 
 // radio to display CSS in html head or not
+if( !function_exists('juiz_sps_setting_radio_css_in_html')) {
 function juiz_sps_setting_radio_css_in_html() {
 	$y = $n = '';
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
@@ -390,33 +509,38 @@ function juiz_sps_setting_radio_css_in_html() {
 			<input id="jsps_target_link_n" value="0" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_write_css_in_html]" type="radio" '.$n.' disabled="disabled" />
 			<label style="color:#777;" for="jsps_target_link_n">'. __('No', 'jsps_lang') . '</label>';
 }
+}
 
 
 // Mail section text
+if( !function_exists('juiz_sps_section_text_mail')) {
 function juiz_sps_section_text_mail() {
 	echo '<p class="juiz_sps_section_intro">'. __('You can customize texts to display when visitors share your content by mail button', 'jsps_lang') .'</p>';
 	echo '<p class="juiz_sps_section_intro">'. sprintf(__('To perform customization, you can use %s%%%%title%%%%%s, %s%%%%siteurl%%%%%s or %s%%%%permalink%%%%%s variables.', 'jsps_lang'), '<code>', '</code>', '<code>', '</code>', '<code>', '</code>') .'</p>';
 }
-
+}
+if( !function_exists('juiz_sps_setting_input_mail_subject')) {
 function juiz_sps_setting_input_mail_subject() {
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
 	if(isset($options['juiz_sps_mail_subject']))
 		echo '<input id="juiz_sps_mail_subject" value="'.esc_attr($options['juiz_sps_mail_subject']).'" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_mail_subject]" type="text">';
 }
-
+}
+if( !function_exists('juiz_sps_setting_textarea_mail_body')) {
 function juiz_sps_setting_textarea_mail_body() {
 	$options = get_option( JUIZ_SPS_SETTING_NAME );
 	if(isset($options['juiz_sps_mail_body']))
 		echo '<textarea id="juiz_sps_mail_body" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_mail_body]">'.esc_textarea($options['juiz_sps_mail_body']).'</textarea>';
 }
+}
 
 // The page layout/form
-
+if( !function_exists('juiz_sps_settings_page')) {
 function juiz_sps_settings_page() {
 	?>
 	<div id="juiz-sps" class="wrap">
 		<div id="icon-options-general" class="icon32">&nbsp;</div>
-		<h2><?php _e('Manage Juiz Social Post Sharer', 'jsps_lang') ?></h2>
+		<h2><?php _e('Manage Juiz Social Post Sharer', 'jsps_lang') ?> <small>v. <?php echo JUIZ_SPS_VERSION; ?></small></h2>
 
 		<?php if ( isset($_GET['message']) && $_GET['message'] = '1337') { ?>
 		<div class="error settings-error">
@@ -429,7 +553,7 @@ function juiz_sps_settings_page() {
 			<?php echo sprintf(__('You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional attribute "buttons" listing the social networks you want.','jsps_lang'), '<code>','</code>', '<code>','</code>'); ?>
 			<br />
 			<?php _e('Example with all the networks available:','jsps_lang') ?>
-			<code>[juiz_sps buttons="facebook, twitter, google, pinterest, digg, weibo, linkedin, viadeo, stumbleupon, mail"]</code>
+			<code>[juiz_sps buttons="facebook, twitter, google, pinterest, digg, weibo, linkedin, viadeo, stumbleupon, vk, mail"]</code>
 		</p>
 		<form method="post" action="options.php">
 			<?php
@@ -448,4 +572,5 @@ function juiz_sps_settings_page() {
 		</p>
 	</div>
 	<?php
+}
 }
