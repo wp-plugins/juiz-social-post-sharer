@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, post, share
 Requires at least: 3.3
 Tested up to: 3.7.1
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -179,6 +179,10 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 1.3.1 =
+* Typo fix on CSS files (Metro styles only)
+* Bug fix on Pinterest button when target option is activated (find on Firefox by [synthview](http://wordpress.org/support/topic/pinterest-on-124-dont-work-as-axpected?replies=16#post-4874699))
 
 = 1.3.0 =
 * New feature: choose directly in the edit page of a post if you want to hide buttons (just a box to check)
