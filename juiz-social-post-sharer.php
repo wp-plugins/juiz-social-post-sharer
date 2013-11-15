@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Donate</a>
 Author: Geoffrey Crofte
-Version: 1.3.1
+Version: 1.3.2
 Author URI: http://crofte.fr
 License: GPLv2 or later 
 */
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.3.1' );
+define( 'JUIZ_SPS_VERSION',		 '1.3.2' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -149,7 +149,7 @@ if (!is_admin()) {
 				$juiz_sps_content .= "\n".'<'.$div.' class="juiz_sps_links '.$container_classes.' juiz_sps_displayed_'.$juiz_sps_display_where.'">';
 				$juiz_sps_content .= $hide_intro_phrase ? '' : "\n".'<'.$p.' class="screen-reader-text juiz_sps_maybe_hidden_text">'.$share_the_post_sentence.' "'.get_the_title().'"</'.$p.'>'."\n";
 				$juiz_sps_content .= $before_the_list;
-				$juiz_sps_content .= "\n\t".'<'.$ul.' class="juiz_sps_links_list'.$juiz_sps_hidden_name_class.'"><!--'."\n";
+				$juiz_sps_content .= "\n\t".'<'.$ul.' class="juiz_sps_links_list'.$juiz_sps_hidden_name_class.'">';
 				$juiz_sps_content .= $before_first_i;
 
 				// networks to display
@@ -252,19 +252,16 @@ if (!is_admin()) {
 						}
 
 						$network_name = isset($v[1]) ? $v[1] : $k;
-						$juiz_sps_content .= "\n\t\t".'--><'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.$api_link.'" '.$rel_nofollow.' title="'.$api_text.'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon"></span><span class="juiz_sps_network_name">'.$network_name.'</span></a></'.$li.'><!--'."\n";
+						$juiz_sps_content .= '<'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.$api_link.'" '.$rel_nofollow.' title="'.$api_text.'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon"></span><span class="juiz_sps_network_name">'.$network_name.'</span></a></'.$li.'>';
 
 					}
 				}
 				$general_counters = (isset($juiz_sps_options['juiz_sps_counter']) && $juiz_sps_options['juiz_sps_counter']==1) ? 1 : 0;
-				$hidden_info = '
-					<input type="hidden" class="juiz_sps_info_plugin_url" value="'.JUIZ_SPS_PLUGIN_URL.'" />
-					<input type="hidden" class="juiz_sps_info_permalink" value="'.$url.'" />
-					';
+				$hidden_info = '<input type="hidden" class="juiz_sps_info_plugin_url" value="'.JUIZ_SPS_PLUGIN_URL.'" /><input type="hidden" class="juiz_sps_info_permalink" value="'.$url.'" />';
 
 				$juiz_sps_content .= $after_last_i;
-				$juiz_sps_content .= (($general_counters==1 && intval($counters)==1) || ($general_counters==0 && intval($counters)==1)) ? '--><li class="juiz_sps_item juiz_sps_totalcount_item"><span class="juiz_sps_totalcount" title="'.__('Total: ', "jsps_lang").'"><span class="juiz_sps_t_nb"></span></span></li><!--' : '';
-				$juiz_sps_content .= '--></'.$ul.'>'."\n\t";
+				$juiz_sps_content .= (($general_counters==1 && intval($counters)==1) || ($general_counters==0 && intval($counters)==1)) ? '<li class="juiz_sps_item juiz_sps_totalcount_item"><span class="juiz_sps_totalcount" title="'.__('Total: ', "jsps_lang").'"><span class="juiz_sps_t_nb"></span></span></li>' : '';
+				$juiz_sps_content .= '</'.$ul.'>'."\n\t";
 				$juiz_sps_content .= $after_the_list;
 				$juiz_sps_content .= ( ($general_counters==1 && intval($counters)==1) || ($general_counters==0 && intval($counters)==1))  ? $hidden_info : '';
 				$juiz_sps_content .= '</'.$div.'>'."\n\n";
