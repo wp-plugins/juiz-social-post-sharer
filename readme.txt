@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJ
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
 Tested up to: 3.7.1
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -52,7 +52,7 @@ Languages available:
 
 * English
 * French
-* Russian (thank you [Fandia](http://fandia.p.ht "Fandia's website")!)
+* Russian (thank you [Fandia](http://fandia.w.pw "Fandia's website")!)
 * Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
 
 <strong>Full <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> available</strong>.
@@ -115,7 +115,7 @@ Langues disponibles :
 
 * Français
 * Anglais
-* Russe (merci à [Fandia](http://fandia.p.ht "Fandia's website") !)
+* Russe (merci à [Fandia](http://fandia.w.pw "Fandia's website") !)
 * Turc (merci à [Hakaner](http://hakanertr.wordpress.com/ "Son site web") !)
 
 <strong><a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> complète disponible !</strong>.
@@ -180,6 +180,11 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 == Changelog ==
 
+= 1.3.3 = 
+* Bug fix for Tony's style buttons (lake of rules for VK social network)
+* Bug fix for Facebook counters (little JS error)
+* Readme updated
+
 = 1.3.2 =
 * Bug fix when your theme has wp_autop activated on your content (thank you [Jérémy](http://www.out-the-box.fr)).
 
@@ -192,9 +197,9 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 * New feature: optional counter available (needs JavaScript) - CSS improved for that - Note it's in beta test
 * New feature: optional "force Pinterest sniffing for image" feature (needs JavaScript)
 * New: russian network VKontakte
-* New: black style by [Fandia](http://fandia.p.ht "Fandia's website")!
+* New: black style by [Fandia](http://fandia.w.pw "Fandia's website")!
 * Translation: new Turkish language (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
-* Translation: new Russian language (thanks to [Fandia](http://fandia.p.ht "Fandia's website")!)
+* Translation: new Russian language (thanks to [Fandia](http://fandia.w.pw "Fandia's website")!)
 * New hook: `juiz_sps_intro_phrase_text` to help you change (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
 * New hook: `juiz_sps_hide_intro_phrase` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))
 * New hook: `juiz_sps_share_text_for_[network]` (see [the documentation](http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html "Official Documentation"))

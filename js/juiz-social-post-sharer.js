@@ -33,7 +33,7 @@ Author: Geoffrey Crofte
 			// return : {"count":17,"fCnt":"17","fCntPlusOne":"18","url":"http:\/\/stylehatch.co"}
 			var pinterest_url   = "http://api.pinterest.com/v1/urls/count.json?callback=?&url=" + url;
 			// return : ({"count": 0, "url": "http://stylehatch.co"})
-			var facebook_url	= "https://graph.facebook.com/fql?q=SELECT%20like_count,%20total_count,%20share_count,%20click_count,%20comment_count%20FROM%20link_stat%20WHERE%20url%20=%20%22http://www.creativejuiz.fr/blog%22";
+			var facebook_url	= "https://graph.facebook.com/fql?q=SELECT%20like_count,%20total_count,%20share_count,%20click_count,%20comment_count%20FROM%20link_stat%20WHERE%20url%20=%20%22"+url+"%22";
 			// return : {"data": [{"like_count": 6,"total_count": 25,"share_count": 9,"click_count": 0,"comment_count": 10}]}
 			var google_url		= plugin_url+"js/get-noapi-counts.php?nw=google&url=" + url;
 			var stumble_url		= plugin_url+"js/get-noapi-counts.php?nw=stumble&url=" + url;

@@ -56,6 +56,7 @@ Version: Styles v5 (Design and CSS by Tony Trancard - tonytrancard.fr)
 .juiz_sps_links .juiz_sps_link_stumbleupon .juiz_sps_icon { background-position: -224px 0; }
 .juiz_sps_links .juiz_sps_link_weibo .juiz_sps_icon { background-position: -288px 0; }
 .juiz_sps_links .juiz_sps_link_digg .juiz_sps_icon { background-position: -256px 0; }
+.juiz_sps_links .juiz_sps_link_vk .juiz_sps_icon { background-position: -319px -1px; }
 
 .juiz_sps_links a:hover,
 .juiz_sps_links a:focus {
