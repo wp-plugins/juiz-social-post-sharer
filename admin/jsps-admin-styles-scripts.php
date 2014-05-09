@@ -68,6 +68,7 @@
 
 			.juiz_bottom_links em {display:block; margin-bottom: .5em; font-style:italic; color:#777;}
 			#juiz_sps_mail_body {width: 100%; max-width: 400px;}
+			.juiz_hide {display:none;}
 
 			@media (max-width:640px) {
 				#juiz-sps .jsps_info { margin-left: 0; }
@@ -87,6 +88,19 @@
 		<script>
 			jQuery(document).ready(function($){
 				$("input[disabled]").closest("tr").addClass("juiz_disabled");
+				$("#jsps_counter_both").closest("tr").addClass("juiz_hide juiz_counter_option");
+
+				$(\'input[name="juiz_SPS_settings[juiz_sps_counter]"]\').on("change", juiz_on_change_visibility);
+
+				function juiz_on_change_visibility() {
+					if( $("#jsps_counter_y").filter(":checked").length == 1) {
+						$(".juiz_counter_option").fadeIn(300);
+					}
+					else {
+						$(".juiz_counter_option").fadeOut(300);
+					}
+				}
+				juiz_on_change_visibility();
 			});
 		</script>
 		<!-- end of '.JUIZ_SPS_PLUGIN_NAME.' scripts -->

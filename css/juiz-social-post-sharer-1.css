@@ -150,3 +150,6 @@ Version: Styles v1
 .juiz_sps_totalcount {
 	border-radius: 3px;
 }
+.juiz_hidden_counter {
+	display:none;
+}

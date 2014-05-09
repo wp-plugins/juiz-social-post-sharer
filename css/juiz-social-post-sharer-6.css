@@ -152,3 +152,6 @@ Version: Styles v6 (Design and CSS by Fandia - fandia.p.ht)
 .juiz_sps_totalcount {
 	border-right-width: 2px;
 }
+.juiz_hidden_counter{
+	display:none;
+}

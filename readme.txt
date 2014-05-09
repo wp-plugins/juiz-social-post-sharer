@@ -3,8 +3,8 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
-Tested up to: 3.7.1
-Stable tag: 1.3.3
+Tested up to: 3.9
+Stable tag: 1.3.3.7
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -54,6 +54,7 @@ Languages available:
 * French
 * Russian (thank you [Fandia](http://fandia.w.pw "Fandia's website")!)
 * Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
+* Deutsch (thank to [Dennis Schmitz ](http://compcardinmotion.de "Dennis Schmitz's website")!)
 
 <strong>Full <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> available</strong>.
 
@@ -117,6 +118,7 @@ Langues disponibles :
 * Anglais
 * Russe (merci à [Fandia](http://fandia.w.pw "Fandia's website") !)
 * Turc (merci à [Hakaner](http://hakanertr.wordpress.com/ "Son site web") !)
+* Allemand (merci à [Dennis Schmitz ](http://compcardinmotion.de "Site web de Dennis Schmitz") !)
 
 <strong><a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> complète disponible !</strong>.
 
@@ -152,6 +154,13 @@ You can use one of both method :
 
 Find a complete documentation on <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">this official documentation</a>
 
+= The text shared by default is very ugly, something like "Share the post "YOUR POST TITLE" FacebookTwitterGoogle+E-mail [SOME OTHER WORDS]"? =
+You certainly activated the buttons in the top of your post. It's your choice, but in this case, you need to improve by yourself the SEO-description of your article/page. You can try using the <a href="https://wordpress.org/plugins/wordpress-seo/">WordPress SEO plugin by Yoast</a>. 
+
+= Can I add a "Like" ou "Google +1" button with this plugin? =
+Yes, but not with the page options of this plugin. You need to use a hook to add an item in your buttons list.
+See the `juiz_sps_before_first_item` or `juiz_sps_after_last_item` hook in <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">the documentation</a>. 
+
 = I have a fatal error or a 500 server error since update to 1.2.3 =
 Yes, you surely use pinterest button. It's a bug, update to 1.2.4.
 Thank you.
@@ -179,6 +188,23 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 1.3.3.7 =
+* WordPress 3.9.x compatibility
+* **Bug fixes**
+ * remove PHP Warning in some cases in post/page/cpt edit pages
+ * remove notice error in translation ([more info](http://wordpress.org/support/topic/notice-error?replies=2#post-5514485 "WordPress forum support"))
+ * remove notice in debug mode and with Pinterest option activated ([more info](http://wordpress.org/support/topic/minor-undefined-index-juiz_sps_force_pinterest_snif?replies=2#post-5127804 "WordPress forum support"))
+* **Improvements**
+ * Add "title" parameter for Weibo API (thank you Aili!)
+ * HTML tag for "total count" is customizable (it was an LI element)
+ * New hook `juiz_sps_share_name_for_[network]` to adjust networks name-text ([more info](http://wordpress.org/support/topic/button-text-and-image?replies=2#post-5510471))
+ * New hook `juiz_sps_use_default_css` to remove default CSS request (you can use your own CSS)
+ * New in Shortcode : use the `url` parameter to share "permalink", "siteurl" or "customurl" instead of current URL
+ * New in Template function : use the $url_to_share parameter to share "permalink", "siteurl" or "customurl" instead of current URL
+* **New**
+ * Counters option: display sub-totals only, total only or both
+ * Deutsch translation by [Dennis Schmitz](http://compcardinmotion.de "Dennis Schmitz's website")
 
 = 1.3.3 = 
 * Bug fix for Tony's style buttons (lake of rules for VK social network)

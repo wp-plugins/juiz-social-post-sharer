@@ -107,3 +107,6 @@ Version: Styles v4
 	border-right-width: 1px;
 	border-radius: 3px 3px;
 }
+.juiz_hidden_counter {
+	display:none;
+}

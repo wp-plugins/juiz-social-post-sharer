@@ -216,7 +216,7 @@
 	<h1>
 		<img src="http://plugins.svn.wordpress.org/juiz-social-post-sharer/assets/banner-772x250.png" width="772" height="250" alt="" />
 		<span class="title">Juiz SPS - Documentation</span>
-		<span class="version">v. 1.3.0</span>
+		<span class="version">v. 1.3.3.7</span>
 		<span class="overlay"></span>
 	</h1>
 	
@@ -319,7 +319,14 @@
 .juiz_sps_icon { }
 
 /* and its name */
-.juiz_sps_network_name { }</code></pre>
+.juiz_sps_network_name { }
+
+/* Counters */
+/* for each item */
+.juiz_sps_counter { }
+.juiz_sps_totalcount_item { }
+/* the total count bubble */
+.juiz_sps_totalcount { } </code></pre>
 	
 	<p>You can improve your CSS editions by using <a href="http://getfirebug.com/" target="_blank">Firebug plugin</a>.</p>
 
@@ -339,6 +346,7 @@
 		<li><code>buttons</code>: keywords available are "twitter, facebook, google, linkedin, digg, viadeo, stumbleupon, weibo, pinterest, vk, mail"</li>
 		<li><code>counters</code>: (<code>0</code> by default), use <code>1</code> to show counters.</li>
 		<li><code>current</code>: (<code>1</code> by default), use <code>0</code> to share permalink value instead of current URL (I advice you to keep the value <code>1</code> if you use shortcode in a widget).</li>
+		<li><code>url</code>: (<code>permalink</code> by default), use <code>permalink</code>, <code>siteurl</code> or <code>string (url value)</code> to share the value you set instead of current URL by default. <span class="since">since 1.3.3.7</span></li>
 	</ul>
 	
 	<p>Example of use:</p>
@@ -351,7 +359,7 @@
 	<h2 id="template">Template functions <span class="since">since 1.2.0</span></h2>
 
 	<p>Template functions allow you to display list of buttons inside any theme template you need.
-		<br />There are two functions: <code>juiz_sps($networks, $show_counters, $share_current_page)</code> and <code>get_juiz_sps($networks, $show_counters, $share_current_page)</code></p>
+		<br />There are two functions: <code>juiz_sps($networks, $show_counters, $share_current_page, $is_shortcode, $url_to_share)</code> and <code>get_juiz_sps($networks, $show_counters, $share_current_page, $is_shortcode, $url_to_share)</code></p>
 
 	<p><strong>Parameters</strong></p>
 	<ul>
@@ -361,6 +369,10 @@
 		<em>Default value : <code>0</code></em></li>
 		<li><code>$share_current_page</code> (int) – share the current page or the "permalink" value. <code>1</code> share the current page, <code>0</code> share the value of permalink. Note: sometimes, both value return the same URL to share.<br/>
 		<em>Default value : <code>1</code></em></li>
+		<li><code>$is_shortcode</code> (int) – share the current page or the "permalink" value. <code>1</code> share the current page, <code>0</code> share the value of permalink. Note: sometimes, both value return the same URL to share.<br/>
+		<em>Default value : <code>0</code></em></li>
+		<li><code>$url_to_share</code> (string) – the URL to share. <code>permalink</code> to share the current page permalink, <code>siteurl</code> to share the main site URL, <code>url-value</code> to share a custom URL.<br/>
+		<em>Default value : <code>NULL</code></em> <span class="since">since 1.3.3.7</span></li>
 	</ul>
 	
 	<p>Example of use:</p>
@@ -592,7 +604,18 @@ add_filter('juiz_sps_the_shared_permalink_for_twitter', 'jsps_custom_permalink_f
 ?&gt;</code></pre>
 
 
-<h3 id="juiz_sps_share_text_for_">Hook: <code>juiz_sps_share_text_for_<em>[network]</em></code><span class="since">(since v1.3.0)</span></h3>
+<h3 id="juiz_sps_share_name_for_">Hook: <code>juiz_sps_share_name_for_<em>[network]</em></code><span class="since">(since v1.3.3.7)</span></h3>
+	<p>Customizes the name text for each network by replacing [network] by the good social network's name:</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('jsps_change_twitter_name')) {
+function jsps_change_twitter_name(){
+	return __('BlueBird');
+}
+}
+add_filter('juiz_sps_share_name_for_twitter', 'jsps_change_twitter_name');
+?&gt;</code></pre>
+
+<h3 id="juiz_sps_share_text_for_">Hook: <code>juiz_sps_share_text_for_<em>[network]</em></code> <span class="since">(since v1.3.0)</span></h3>
 	<p>Customizes the text inside each tooltip for each network by replacing [network] by the good social network's name:</p>
 <pre class="code"><code class="php">&lt;?php
 if( !function_exists('custom_share_text_for_facebook')) {
@@ -617,11 +640,38 @@ add_filter('juiz_sps_links_nofollow', 'custom_links_attributes');
 ?&gt;</code></pre>
 
 
+<h3 id="jsps_remove_default_css">Hook: <code>jsps_remove_default_css</code> <span class="since">(since v1.3.3.7)</span></h3>
+	<p>You need to use your own CSS file, you can remove default CSS files</p>
+<pre class="code"><code class="php">&lt;?php
+if( !function_exists('jsps_remove_default_css')) {
+function jsps_remove_default_css(){
+	return false;
+}
+}
+add_filter('juiz_sps_use_default_css', 'jsps_remove_default_css');
+?&gt;</code></pre>
+
+
 	
 
 	<h2 id="faq">FAQ</h2>
 	
 	<dl>
+		<dt>
+			The text shared by default is very ugly, something like "Share the post "YOUR POST TITLE" FacebookTwitterGoogle+E-mail [SOME OTHER WORDS]"?
+		</dt>
+		<dd>
+			You certainly activated the buttons in the top of your post. It's your choice, but in this case, you need to improve by yourself the SEO-description of your article/page. You can try using the <a href="https://wordpress.org/plugins/wordpress-seo/">WordPress SEO plugin by Yoast</a>.
+		</dd>
+
+		<dt>
+			Can I add a "Like" ou "Google +1" button with this plugin?
+		</dt>
+		<dd>
+			Yes, but not with the page options of this plugin. You need to use a hook to add an item in your buttons list.<br>
+			See the <a href="#juiz_sps_before_first_item"><code>juiz_sps_before_first_item</code></a> or <a href="#juiz_sps_after_last_item"><code>juiz_sps_after_last_item</code></a> hook in this documentation.
+		</dd>
+
 		<dt>
 			Styles are not loaded, there are some ugly sharing links, why?
 		</dt>
@@ -669,7 +719,7 @@ add_filter('juiz_sps_links_nofollow', 'custom_links_attributes');
 	<div id="footer"><p>Documentation for your life easier !<br />
 	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" title="Go to Paypal Website" class="button" target="_blank">Donate</a>
 	<a href="https://twitter.com/intent/tweet?source=webclient&amp;hastags=WordPress,Plugin&amp;text=Juiz%20Social%20Post%20Sharer%20is%20an%20awesome%20WordPress%20plugin%20to%20share%20content!%20Try%20it!&amp;url=http://wordpress.org/extend/plugins/juiz-social-post-sharer/&amp;related=geoffrey_crofte&amp;via=geoffrey_crofte" target="_blank" class="tweet button">Tweet it</a></p>
-	<p class="last-update">v 1.3.0<br />Last update: 2013, 8 nov.</p>
+	<p class="last-update">v 1.3.3.7<br />Last update: 2014, 9 may</p>
 
 	</div>
 </body>
