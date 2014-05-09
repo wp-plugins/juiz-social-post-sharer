@@ -1,0 +1,403 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Juiz Social Post Sharer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-11 02:34+0100\n"
+"PO-Revision-Date: 2013-11-11 02:34+0100\n"
+"Last-Translator: Geoffrey <rikuasakura@hotmail.fr>\n"
+"Language-Team: hakaner <hakanerwptr@gmail.com>\n"
+"Language: turkish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../juiz-social-post-sharer.php:118
+msgid "Share the post"
+msgstr "Yazıyı paylaş"
+
+#: ../juiz-social-post-sharer.php:188
+msgid "Share this article on Twitter"
+msgstr "Bu yazıyı Twitter üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:193
+msgid "Share this article on Facebook"
+msgstr "Bu yazıyı Facebook üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:198
+msgid "Share this article on Google+"
+msgstr "Bu yazıyı Google+ üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:208
+msgid "Share an image of this article on Pinterest"
+msgstr "Bu yazıyı Pinterest üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:213
+msgid "Share this article on Viadeo"
+msgstr "Bu yazıyı Viadeo üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:218
+msgid "Share this article on LinkedIn"
+msgstr "Bu yazıyı LinkedIn üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:223
+msgid "Share this article on Digg"
+msgstr "Bu yazıyı Digg üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:228
+msgid "Share this article on StumbleUpon"
+msgstr "Bu yazıyı StumbleUpon üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:233
+msgid "Share this article on Weibo"
+msgstr "Bu yazıyı Weibo üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:238
+msgid "Share this article on VKontakte"
+msgstr "Bu yazıyı VKontakte üzerinde paylaş"
+
+#: ../juiz-social-post-sharer.php:249
+msgid "Share this article with a friend (email)"
+msgstr "Bu yazıyı bir arkadaşın ile paylaş (eposta)"
+
+#: ../juiz-social-post-sharer.php:265
+msgid "Total: "
+msgstr "Toplam: "
+
+#: ../admin/jsps-admin.inc.php:39 ../admin/jsps-admin.inc.php:55
+#, php-format
+msgid "Visit this link find on %%siteurl%%"
+msgstr "%%siteurl%% üzerinde bulunan bu bağlantıyı ziyaret et"
+
+#: ../admin/jsps-admin.inc.php:40 ../admin/jsps-admin.inc.php:56
+#, php-format
+msgid ""
+"Hi, I found this information for you : \"%%title%%\"! This is the direct "
+"link: %%permalink%% Have a nice day :)"
+msgstr ""
+"Merhaba, senin için bu bilgileri buldum : \"%%title%%\"! Bu doğrudan "
+"bağlantısı: %%permalink%% İyi günler :)"
+
+#: ../admin/jsps-admin.inc.php:90
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: ../admin/jsps-admin.inc.php:107 ../admin/jsps-admin.inc.php:108
+msgid "Social Post Sharer"
+msgstr "Social Post Sharer"
+
+#: ../admin/jsps-admin.inc.php:139 ../admin/jsps-admin.inc.php:144
+msgid "Sharing buttons"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:153
+msgid "Hide sharing buttons for this post."
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:180
+msgid "Main settings"
+msgstr "Ana ayarlar"
+
+#: ../admin/jsps-admin.inc.php:181
+msgid "Choose a style to display"
+msgstr "Görüntülenecek bir stil seçin"
+
+#: ../admin/jsps-admin.inc.php:182
+msgid "Display those following social networks:"
+msgstr "Bu sosyal ağlar gösterilsin:"
+
+#: ../admin/jsps-admin.inc.php:183
+msgid "What is your Twitter user name to be mentioned?"
+msgstr "Bahsedilecek olan Twitter kullanıcı adınız nedir?"
+
+#: ../admin/jsps-admin.inc.php:184 ../admin/jsps-admin.inc.php:190
+#: ../admin/jsps-admin.inc.php:199
+msgid "Save Changes"
+msgstr "Değişiklikleri Kaydet"
+
+#: ../admin/jsps-admin.inc.php:187
+msgid "Display settings"
+msgstr "Görüntüleme ayarları"
+
+#: ../admin/jsps-admin.inc.php:188
+msgid "What type of content must have buttons?"
+msgstr "Hangi tür içeriğin butonları olmalıdır?"
+
+#: ../admin/jsps-admin.inc.php:189
+msgid "Where do you want to display buttons?"
+msgstr "Butonları nerede görüntülemek istiyorsun?"
+
+#: ../admin/jsps-admin.inc.php:193
+msgid "Advanced settings"
+msgstr "Gelişmiş ayarlar"
+
+#: ../admin/jsps-admin.inc.php:194
+msgid "Show only social icon?"
+msgstr "Sadece sosyal simgeyi göster?"
+
+#: ../admin/jsps-admin.inc.php:194
+msgid "hide text, show it on mouse over or focus"
+msgstr "metni gizle, fare üzerindeyken veya odaklıyken onu göster"
+
+#: ../admin/jsps-admin.inc.php:195
+msgid "Open links in a new window?"
+msgstr "Bağlantıları yeni bir pencerede aç?"
+
+#: ../admin/jsps-admin.inc.php:195
+#, php-format
+msgid "adds a %s attribute"
+msgstr "bir %s niteliği ekler"
+
+#: ../admin/jsps-admin.inc.php:196
+msgid "Force Pinterest button sniffing all images of the page?"
+msgstr "Sayfadaki tüm görüntüleri taramak için Pinterest düğmesine zorlamak?"
+
+#: ../admin/jsps-admin.inc.php:196 ../admin/jsps-admin.inc.php:197
+msgid "need JavaScript"
+msgstr "JavaScript gerekir"
+
+#: ../admin/jsps-admin.inc.php:197
+msgid "Display counter of sharing?"
+msgstr "Paylaşım sayacı göster?"
+
+#: ../admin/jsps-admin.inc.php:198
+msgid "Write CSS code in HTML head?"
+msgstr "HTML başlığına CSS kodu yaz?"
+
+#: ../admin/jsps-admin.inc.php:198
+msgid "good thing for performance on mobile"
+msgstr "mobil performansı için iyi bir şey"
+
+#: ../admin/jsps-admin.inc.php:202
+msgid "Customize mail texts"
+msgstr "Posta yazılarını kişiselleştir"
+
+#: ../admin/jsps-admin.inc.php:203
+msgid "Mail subject:"
+msgstr "Posta konusu:"
+
+#: ../admin/jsps-admin.inc.php:204
+msgid "Mail body:"
+msgstr "Posta gövdesi:"
+
+#: ../admin/jsps-admin.inc.php:265
+msgid "Here, you can modify default settings of the SPS plugin"
+msgstr "Buradan, SPS eklentisinin varsayılan ayarlarını değiştirebilirsiniz"
+
+#: ../admin/jsps-admin.inc.php:280
+msgid "Juizy Light Tone"
+msgstr "Juizy Açık Ton"
+
+#: ../admin/jsps-admin.inc.php:284
+msgid "Juizy Light Tone Reverse"
+msgstr "Juizy Açık Ton Ters"
+
+#: ../admin/jsps-admin.inc.php:288
+msgid "Blue Metro Style"
+msgstr "Mavi Metro Stili"
+
+#: ../admin/jsps-admin.inc.php:292
+msgid "Gray Metro Style"
+msgstr "Gri Metro Stili"
+
+#: ../admin/jsps-admin.inc.php:296
+msgid "Modern Style"
+msgstr "Modern Stil"
+
+#: ../admin/jsps-admin.inc.php:296 ../admin/jsps-admin.inc.php:300
+msgid "by"
+msgstr "yazarı"
+
+#: ../admin/jsps-admin.inc.php:300
+msgid "Black"
+msgstr ""
+
+#: ../admin/jsps-admin.inc.php:316
+msgid "uses JavaScript to work"
+msgstr "çalışmak için JavaScript kullanır"
+
+#: ../admin/jsps-admin.inc.php:325
+msgid "New social network!"
+msgstr "Yeni sosyal ağ!"
+
+#: ../admin/jsps-admin.inc.php:337
+msgid "Username without \"@\""
+msgstr "\"@\" olmadan kullanıcı adı"
+
+#: ../admin/jsps-admin.inc.php:347
+msgid ""
+"You can choose precisely the types of content that will benefit from the "
+"sharing buttons."
+msgstr ""
+"Bu paylaşım butonlarından yararlanacak olan içeriğin tam türünü "
+"seçebilirsiniz."
+
+#: ../admin/jsps-admin.inc.php:387
+#, php-format
+msgid "Lists of articles %s(blog, archives, search results, etc.)%s"
+msgstr "Makalelerin Listesi %s(blog, arşivler, arama sonuçları, vs.)%s"
+
+#: ../admin/jsps-admin.inc.php:403
+msgid "Content bottom"
+msgstr "İçeriğin altına"
+
+#: ../admin/jsps-admin.inc.php:406
+msgid "Content top"
+msgstr "İçeriğin üzerine"
+
+#: ../admin/jsps-admin.inc.php:409
+msgid "Both"
+msgstr "Her ikisi de"
+
+#: ../admin/jsps-admin.inc.php:412
+msgid "I'm a ninja, I want to use the shortcode only!"
+msgstr "Ben bir ninjayım, sadece kısakod kullanmak istiyorum!"
+
+#: ../admin/jsps-admin.inc.php:422
+msgid ""
+"Modify advanced settings of the plugin. Some of them needs JavaScript (only "
+"one file loaded)"
+msgstr ""
+"Eklentinin gelişmiş ayarlarını değiştirin. Bazılarına JavaScript gerekir "
+"(sadece tek bir dosya yüklenir)"
+
+#: ../admin/jsps-admin.inc.php:437 ../admin/jsps-admin.inc.php:456
+#: ../admin/jsps-admin.inc.php:473 ../admin/jsps-admin.inc.php:491
+#: ../admin/jsps-admin.inc.php:509
+msgid "Yes"
+msgstr "Evet"
+
+#: ../admin/jsps-admin.inc.php:440 ../admin/jsps-admin.inc.php:459
+#: ../admin/jsps-admin.inc.php:476 ../admin/jsps-admin.inc.php:494
+#: ../admin/jsps-admin.inc.php:512
+msgid "No"
+msgstr "Hayır"
+
+#: ../admin/jsps-admin.inc.php:507
+msgid "This option will be enabled for a next version"
+msgstr "Bu seçenek, sonraki bir sürümde etkin olacak"
+
+#: ../admin/jsps-admin.inc.php:520
+msgid ""
+"You can customize texts to display when visitors share your content by mail "
+"button"
+msgstr ""
+"Ziyaretçiler posta butonu ile içerik paylaştıklarında gösterilecek yazıları "
+"kişiselleştirebilirsiniz"
+
+#: ../admin/jsps-admin.inc.php:521
+#, php-format
+msgid ""
+"To perform customization, you can use %s%%%%title%%%%%s, %s%%%%siteurl%%%%%s "
+"or %s%%%%permalink%%%%%s variables."
+msgstr ""
+"Kişiselleştirmeyi gerçekleştirmek için, %s%%%%title%%%%%s, %s%%%%siteurl%%%%"
+"%s veya %s%%%%permalink%%%%%s değişkenlerini kullanabilirsiniz."
+
+#: ../admin/jsps-admin.inc.php:545
+msgid "Manage Juiz Social Post Sharer"
+msgstr "Juiz Social Post Sharer Eklentisini Yönetin"
+
+#: ../admin/jsps-admin.inc.php:550
+#, php-format
+msgid "You must chose at least one %stype of content%s."
+msgstr "En az bir %siçerik türü%s seçmeniz gerekir."
+
+#: ../admin/jsps-admin.inc.php:551
+msgid ""
+"Is you don't want to use this plugin more longer, go to Plugins section and "
+"deactivate it."
+msgstr ""
+"Eğer bu eklentiyi artık daha fazla kullanmak istemiyorsanız, Eklentiler "
+"bölümüne gidin ve devre dışı bırakın."
+
+#: ../admin/jsps-admin.inc.php:555
+#, php-format
+msgid ""
+"You can use %s[juiz_sps]%s or %s[juiz_social]%s shortcode with an optional "
+"attribute \"buttons\" listing the social networks you want."
+msgstr ""
+"İsteğe bağlı \"buttons\" özniteliğinde istediğiniz sosyal ağları "
+"listeleyerek %s[juiz_sps]%s veya %s[juiz_social]%s kısa kodlarını "
+"kullanabilirsiniz."
+
+#: ../admin/jsps-admin.inc.php:557
+msgid "Example with all the networks available:"
+msgstr "Mevcut tüm ağlar ile bir örnek:"
+
+#: ../admin/jsps-admin.inc.php:569
+msgid "Like it? Support this plugin! Thank you."
+msgstr "Beğendin mi? Bu eklentiyi destekle! Teşekkürler."
+
+#: ../admin/jsps-admin.inc.php:570
+msgid "Donate"
+msgstr "Bağış yap"
+
+#: ../admin/jsps-admin.inc.php:571
+msgid "Tweet it"
+msgstr "Tweetle"
+
+#: ../admin/jsps-admin.inc.php:572
+msgid "Rate it"
+msgstr "Oy ver"
+
+#: ../admin/jsps-admin.inc.php:573
+msgid "Documentation"
+msgstr "Belgeler"
+
+#~ msgid "Visit this link"
+#~ msgstr "Visit this link"
+
+#~ msgid "Hi, I found this information for you! Have a nice day :)"
+#~ msgstr "Hi, I found this information for you! Have a nice day :)"
+
+#~ msgid "adds a <code>target=\"_blank\"</code> attribute"
+#~ msgstr "adds a <code>target=\"_blank\"</code> attribute"
+
+#~ msgid "Howdy, %1$s"
+#~ msgstr "Howdy, %1$s"
+
+#~ msgid "Credits"
+#~ msgstr "Credits"
+
+#~ msgid ""
+#~ "Mobile Admin support by <a href=\"http://wordpress.org/extend/plugins/"
+#~ "juiz-smart-mobile-admin\">Juiz SMA</a>"
+#~ msgstr ""
+#~ "Mobile Admin support by <a href=\"http://wordpress.org/extend/plugins/"
+#~ "juiz-smart-mobile-admin\">Juiz SMA</a>"
+
+#~ msgid "Top of page"
+#~ msgstr "Top of page"
+
+#~ msgid "Admin Mobile Appearance"
+#~ msgstr "Admin Mobile Appearance"
+
+#~ msgid "Show plugins shortcuts in adminbar?"
+#~ msgstr "Show plugins shortcuts in adminbar?"
+
+#~ msgid "Show custom WP admin footer ?"
+#~ msgstr "Show custom WP admin footer ?"
+
+#~ msgid "Settings saved"
+#~ msgstr "Settings saved"
+
+#~ msgid "Manage Juiz Smart Mobile Admin"
+#~ msgstr "Manage Juiz Smart Mobile Admin"
+
+#~ msgid "The redirection failed"
+#~ msgstr "The redirection failed"
+
+#~ msgid "refresh the page"
+#~ msgstr "refresh the page"
+
+#~ msgid "Sorry, nothing to update..."
+#~ msgstr "Sorry, nothing to update..."
+
+#~ msgid "Unknown error..."
+#~ msgstr "Unknown error..."
