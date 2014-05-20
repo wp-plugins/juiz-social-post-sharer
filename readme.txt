@@ -3,8 +3,8 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
-Tested up to: 3.9
-Stable tag: 1.3.3.7
+Tested up to: 3.9.1
+Stable tag: 1.3.4
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -54,7 +54,8 @@ Languages available:
 * French
 * Russian (thank you [Fandia](http://fandia.w.pw "Fandia's website")!)
 * Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
-* Deutsch (thank to [Dennis Schmitz ](http://compcardinmotion.de "Dennis Schmitz's website")!)
+* Deutsch (thank to [Dennis Schmitz](http://compcardinmotion.de "Dennis Schmitz's website")!)
+* Spanish (thank to [Roberto Castiñeira](www.mediapartner.es "Roberto Castiñeira's website")!)
 
 <strong>Full <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> available</strong>.
 
@@ -118,7 +119,8 @@ Langues disponibles :
 * Anglais
 * Russe (merci à [Fandia](http://fandia.w.pw "Fandia's website") !)
 * Turc (merci à [Hakaner](http://hakanertr.wordpress.com/ "Son site web") !)
-* Allemand (merci à [Dennis Schmitz ](http://compcardinmotion.de "Site web de Dennis Schmitz") !)
+* Allemand (merci à [Dennis Schmitz](http://compcardinmotion.de "Site web de Dennis Schmitz") !)
+* Espagnol (merci à [Roberto Castiñeira](www.mediapartner.es "Site web de Roberto Castiñeira's")!)
 
 <strong><a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> complète disponible !</strong>.
 
@@ -188,6 +190,16 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+
+= 1.3.4 =
+* We lose our nice 1.3.3.7 version number :/
+* **Fixes**
+ * bug fix on e-mail button when post title use HTML tags (XSS - Thank you [Julio](http://blog.secupress.fr))
+ * bug fix on hidden sentence when post title use HTML tags (XSS - Thank you [Julio](http://blog.secupress.fr))
+* **New**
+ * Spanish translation by [Roberto Castiñeira](www.mediapartner.es "Roberto Castiñeira's website")! Thank you guy!
+
 
 = 1.3.3.7 =
 * WordPress 3.9.x compatibility

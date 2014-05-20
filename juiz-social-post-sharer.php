@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.3.3.7' );
+define( 'JUIZ_SPS_VERSION',		 '1.3.4' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -121,7 +121,7 @@ if (!is_admin()) {
 				}
 
 				// texts, URL and image to share
-				$text = esc_attr(urlencode($post->post_title));
+				$text = wp_strip_all_tags(esc_attr(urlencode($post->post_title)));
 				$url = $post ? get_permalink() : sf_get_current_url( 'raw' );
 				$url = ($url_needed_by_user == false) ? $url : $url_needed_by_user;
 				//$url = urlencode(get_permalink());
@@ -167,7 +167,7 @@ if (!is_admin()) {
 				// beginning markup
 				$juiz_sps_content = $before_the_sps_content;
 				$juiz_sps_content .= "\n".'<'.$div.' class="juiz_sps_links '.esc_attr($container_classes).' juiz_sps_displayed_'.$juiz_sps_display_where.'">';
-				$juiz_sps_content .= $hide_intro_phrase ? '' : "\n".'<'.$p.' class="screen-reader-text juiz_sps_maybe_hidden_text">'.$share_the_post_sentence.' "'.get_the_title().'"</'.$p.'>'."\n";
+				$juiz_sps_content .= $hide_intro_phrase ? '' : "\n".'<'.$p.' class="screen-reader-text juiz_sps_maybe_hidden_text">'.$share_the_post_sentence.' "'.wp_strip_all_tags(get_the_title()).'"</'.$p.'>'."\n";
 				$juiz_sps_content .= $before_the_list;
 				$juiz_sps_content .= "\n\t".'<'.$ul.' class="juiz_sps_links_list'.esc_attr($juiz_sps_hidden_name_class).'">';
 				$juiz_sps_content .= $before_first_i;
@@ -266,17 +266,17 @@ if (!is_admin()) {
 
 							case 'mail' :
 								if (strpos($juiz_sps_options['juiz_sps_mail_body'], '%%') || strpos($juiz_sps_options['juiz_sps_mail_subject'], '%%') ) {
-									$api_link = esc_attr('mailto:?subject='.$juiz_sps_options['juiz_sps_mail_subject'].'&amp;body='.$juiz_sps_options['juiz_sps_mail_body']);
+									$api_link = 'mailto:?subject='.$juiz_sps_options['juiz_sps_mail_subject'].'&amp;body='.$juiz_sps_options['juiz_sps_mail_body'];
 									$api_link = preg_replace(array('#%%title%%#', '#%%siteurl%%#', '#%%permalink%%#', '#%%url%%#'), array(get_the_title(), get_site_url(), get_permalink(), $url), $api_link);
 								}
 								else {
-									$api_link = 'mailto:?subject='.$juiz_sps_options['juiz_sps_mail_subject'].'&amp;body='.$juiz_sps_options['juiz_sps_mail_body']." : ".$url;
+									$api_link = 'mailto:?subject='.$juiz_sps_options['juiz_sps_mail_subject'].'&amp;body='.$juiz_sps_options['juiz_sps_mail_body'].": ".$url;
 								}
 								$api_text = apply_filters('juiz_sps_share_text_for_'.$k, __('Share this article with a friend (email)',JUIZ_SPS_LANG));
 								break;
 						}
 
-						$juiz_sps_content .= '<'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.$api_link.'" '.$rel_nofollow.' title="'.esc_attr($api_text).'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon"></span><span class="juiz_sps_network_name">'.$network_name.'</span></a></'.$li.'>';
+						$juiz_sps_content .= '<'.$li.' class="juiz_sps_item juiz_sps_link_'.$k.'"><a href="'.wp_strip_all_tags(esc_attr($api_link)).'" '.$rel_nofollow.' title="'.esc_attr($api_text).'"'.$juiz_sps_target_link.'><span class="juiz_sps_icon"></span><span class="juiz_sps_network_name">'.$network_name.'</span></a></'.$li.'>';
 
 					}
 				}
