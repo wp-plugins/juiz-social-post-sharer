@@ -1,10 +1,10 @@
-=== Juiz Social Post Sharer ===
+﻿=== Juiz Social Post Sharer ===
 Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
 Tested up to: 3.9.1
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
@@ -40,7 +40,7 @@ Options plugin:
 * Add your Twitter account name to add "via" during a share
 * Choose to display buttons only on certain type of post
 * Choose to hide buttons only on certain posts directly in the edit page (metabox).
-* Choose to display buttons at the bottom, the top of the content, or both
+* Choose to display buttons at the bottom, the top of the content, or both (or just with shortcode)
 * Customize mail texts (subject and body)
 * Display a sharings counter (optional and in beta)
 * Some hooks are available for markup customization (or add some things)
@@ -50,20 +50,17 @@ Options plugin:
 
 Languages available:
 
+* Deutsch (thank to [Dennis Schmitz](http://compcardinmotion.de "Dennis Schmitz's website")!)
 * English
 * French
+* Japanese (thank to [半月 (Hangetsu)](http://wp.fruit-frappe.net/ "Hangetsu's website")!)
 * Russian (thank you [Fandia](http://fandia.w.pw "Fandia's website")!)
-* Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
-* Deutsch (thank to [Dennis Schmitz](http://compcardinmotion.de "Dennis Schmitz's website")!)
+* Serbian (thank to [Borisa Djuraskovic](http://www.webhostinghub.com "Borisa Djuraskovic's website")!)
 * Spanish (thank to [Roberto Castiñeira](www.mediapartner.es "Roberto Castiñeira's website")!)
+* Turkish (thanks to [Hakaner](http://hakanertr.wordpress.com/ "His website")!)
 
 <strong>Full <a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> available</strong>.
 
-Note: the administration page is compatible with <a href="http://wordpress.org/extend/plugins/juiz-smart-mobile-admin" target="_blank">Juiz Smart Mobile Admin</a>
-
-Next major updates:
-
-* Write CSS directly in HTML (head) for mobile performance
 
 This tool relies on third-party applications (API), so if you say "it's broken", please tell me why ;)
 
@@ -105,7 +102,7 @@ Options du plugin :
 * Ajout du pseudo Twitter pour ajouter la mention "via" lors d'un partage
 * Choix du type de contenu bénéficiant des boutons
 * Choix des posts où les boutons de partage ne doivent pas s'afficher directement dans la page concernée (activé pour les types de posts qui utilisent les boutons uniquement, logique...)
-* Choix de l'emplacement des boutons (avant, après le contenu, ou les deux)
+* Choix de l'emplacement des boutons, avant, après le contenu, ou les deux. (ou juste le shortcode)
 * Personnalisez les textes du mail (sujet et corps)
 * Affichez un compteur de partage (optionnel et en beta)
 * Quelques hooks sont disponibles pour modifier le markup HTML (ou ajouter des choses)
@@ -115,22 +112,19 @@ Options du plugin :
 
 Langues disponibles :
 
-* Français
-* Anglais
-* Russe (merci à [Fandia](http://fandia.w.pw "Fandia's website") !)
-* Turc (merci à [Hakaner](http://hakanertr.wordpress.com/ "Son site web") !)
 * Allemand (merci à [Dennis Schmitz](http://compcardinmotion.de "Site web de Dennis Schmitz") !)
-* Espagnol (merci à [Roberto Castiñeira](www.mediapartner.es "Site web de Roberto Castiñeira's")!)
+* Anglais
+* Espagnol (merci à [Roberto Castiñeira](www.mediapartner.es "Site web de Roberto Castiñeira's") !)
+* Français
+* Japonais (merci à [半月 (Hangetsu)](http://wp.fruit-frappe.net/ "Site web de Hangetsu") !)
+* Russe (merci à [Fandia](http://fandia.w.pw "Site web de Fandia") !)
+* Serbe (merci à [Borisa Djuraskovic](http://www.webhostinghub.com "Borisa Djuraskovic's website") !)
+* Turc (merci à [Hakaner](http://hakanertr.wordpress.com/ "Son site web") !)
 
 <strong><a href="http://creativejuiz.fr/blog/doc/juiz-social-post-sharer-documentation.html">Documentation</a> complète disponible !</strong>.
 
-Note : la page d'administration est compatible avec <a href="http://wordpress.org/extend/plugins/juiz-smart-mobile-admin" target="_blank">Juiz Smart Mobile Admin</a>
 
-Prochaines mises à jour majeure :
-
-* Écriture du CSS directement dans le HTML (head) pour des raisons de performance sur mobile
-
-Cet outil dépend d'applications tierces (API), donc si vous notez le plugin comme étant cassé ou fonctionnant mal, merci de me dire pourquoi ;)
+Cet outil dépend d'applications tierces (API), donc si vous notez le plugin comme étant cassé ou fonctionnant mal, merci de me dire pourquoi, car ça n'est pas forcément entièrement ma faute ;)
 
 
 
@@ -191,6 +185,11 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 == Changelog ==
 
+= 1.3.5 =
+* Readme.txt updated
+* **Translation**
+ * New Japanese support, thank you [半月 (Hangetsu)](http://wp.fruit-frappe.net/ "Hangetsu's website")!
+ * New Serbian support, thank you [Borisa Djuraskovic](http://www.webhostinghub.com "Borisa Djuraskovic's website")!
 
 = 1.3.4 =
 * We lose our nice 1.3.3.7 version number :/

@@ -4,14 +4,14 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Donate</a>
 Author: Geoffrey Crofte
-Version: 1.3.4
+Version: 1.3.5
 Author URI: http://crofte.fr
 License: GPLv2 or later 
 */
 
 /**
 
-Copyright 2012-2013  Geoffrey Crofte  (email : support@creativejuiz.com)
+Copyright 2012-2014  Geoffrey Crofte  (email : support@creativejuiz.com)
 
     
 This program is free software; you can redistribute it and/or
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.3.4' );
+define( 'JUIZ_SPS_VERSION',		 '1.3.5' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -67,7 +67,7 @@ if (!is_admin()) {
 				if( is_numeric( $juiz_sps_options['juiz_sps_style'] ) && apply_filters('juiz_sps_use_default_css', true) ) {
 					wp_enqueue_style( 'juiz_sps_styles', JUIZ_SPS_PLUGIN_URL.'css/'.JUIZ_SPS_SLUG.'-'.$juiz_sps_options['juiz_sps_style'].'.min.css', false, JUIZ_SPS_VERSION, 'all' );
 				}
-				if(is_numeric( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 ) {
+				if( is_numeric ( $juiz_sps_options['juiz_sps_counter'] ) && $juiz_sps_options['juiz_sps_counter'] == 1 ) {
 					wp_enqueue_script( 'juiz_sps_scripts', JUIZ_SPS_PLUGIN_URL.'js/'.JUIZ_SPS_SLUG.'.min.js', array('jquery'), JUIZ_SPS_VERSION, true);
 				}
 			}
@@ -396,10 +396,3 @@ if (!is_admin()) {
 	}
 
 } // end of if not admin
-
-
-/**
-	Prévoir:
-	- ajouter l'autre réseau chinois (cf http://wordpress.org/support/topic/button-for-plurk?replies=2)
-	- ajouter le réseau app.net (cf http://wordpress.org/support/topic/button-for-appnet?replies=2)
-**/
