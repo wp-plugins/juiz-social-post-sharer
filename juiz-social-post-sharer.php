@@ -4,7 +4,7 @@ Plugin Name: Juiz Social Post Sharer
 Plugin URI: http://wordpress.org/extend/plugins/juiz-social-post-sharer/
 Description: Add buttons after (or before, or both) your posts to allow visitors share your content (includes no JavaScript mode). You can also use <code>juiz_sps($array)</code> template function or <code>[juiz_sps]</code> shortcode. For more informations see the setting page located in <strong>Settings</strong> submenu. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=P39NJPCWVXGDY&amp;lc=FR&amp;item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&amp;item_number=%23wp%2djsps&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">Donate</a>
 Author: Geoffrey Crofte
-Version: 1.3.5
+Version: 1.3.6
 Author URI: http://crofte.fr
 License: GPLv2 or later 
 */
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
 
 define( 'JUIZ_SPS_PLUGIN_NAME',	 'Juiz Social Post Sharer' );
-define( 'JUIZ_SPS_VERSION',		 '1.3.5' );
+define( 'JUIZ_SPS_VERSION',		 '1.3.6' );
 define( 'JUIZ_SPS_FILE',		 __FILE__ );
 define( 'JUIZ_SPS_DIRNAME',		 basename( dirname( __FILE__ ) ) );
 define( 'JUIZ_SPS_PLUGIN_URL',	 plugin_dir_url( __FILE__ ));
@@ -288,8 +288,10 @@ if (!is_admin()) {
 				$juiz_sps_content .= $after_last_i;
 
 				// show total counter only when "both" or "total" is selected
-				if ( $juiz_sps_options['juiz_sps_counter_option'] == 'both' || $juiz_sps_options['juiz_sps_counter_option'] == 'total') {
-					$juiz_sps_content .= (($general_counters==1 && intval($counters)==1) || ($general_counters==0 && intval($counters)==1)) ? '<'.$li.' class="juiz_sps_item juiz_sps_totalcount_item"><span class="juiz_sps_totalcount" title="'.__('Total: ', "jsps_lang").'"><span class="juiz_sps_t_nb"></span></span></'.$li.'>' : '';
+				if ( isset($juiz_sps_options['juiz_sps_counter_option']) ) {
+					if ( $juiz_sps_options['juiz_sps_counter_option'] == 'both' || $juiz_sps_options['juiz_sps_counter_option'] == 'total' ) {
+						$juiz_sps_content .= (($general_counters==1 && intval($counters)==1) || ($general_counters==0 && intval($counters)==1)) ? '<'.$li.' class="juiz_sps_item juiz_sps_totalcount_item"><span class="juiz_sps_totalcount" title="'.__('Total: ', "jsps_lang").'"><span class="juiz_sps_t_nb"></span></span></'.$li.'>' : '';
+					}
 				}
 				$juiz_sps_content .= '</'.$ul.'>'."\n\t";
 				$juiz_sps_content .= $after_the_list;
@@ -316,8 +318,8 @@ if (!is_admin()) {
 	}
 
 	// write buttons in content
-	add_action('the_content', 'juiz_sps_print_links', 10, 1);
-	add_action('the_excerpt', 'juiz_sps_print_links', 10, 1);
+	add_filter('the_content', 'juiz_sps_print_links', 10, 1);
+	add_filter('the_excerpt', 'juiz_sps_print_links', 10, 1);
 
 	if ( !function_exists('juiz_sps_print_links')) {
 		function juiz_sps_print_links($content) {
@@ -396,3 +398,4 @@ if (!is_admin()) {
 	}
 
 } // end of if not admin
+

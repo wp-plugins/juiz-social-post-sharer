@@ -3,16 +3,20 @@ Contributors: CreativeJuiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
 Requires at least: 3.3
-Tested up to: 3.9.1
-Stable tag: 1.3.5
+Tested up to: 3.9.2
+Stable tag: 1.3.6
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
 
 == Description ==
 
 Add buttons after your posts to allow visitors share your content (includes no JavaScript mode).
-
 Select your favorites social networks among a little list. Display an optional sharings counter.
+
+**You can donate to support**
+
+* [Donate what you want with Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
+* [Flattr this thing!](https://flattr.com/submit/auto?user_id=CreativeJuiz&url=http://wordpress.org/plugins/juiz-social-post-sharer/&title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&category=software)
 
 **Please, use the support forum to tell me bugs encountered, and be patient**
 
@@ -77,6 +81,11 @@ Ajoutez des boutons après vos publications pour permettre aux visiteurs de part
 Sélectionnez vos réseaux sociaux favoris parmis une petite liste.
 
 **Merci d'utiliser le forum de support si vous rencontrez un bogue, et soyez patients.**
+
+**Vous pouvez donner pour aider au développement**
+
+* [Faire un don avec Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
+* [Utiliser Flattr](https://flattr.com/submit/auto?user_id=CreativeJuiz&url=http://wordpress.org/plugins/juiz-social-post-sharer/&title=Juiz%20Social%20Post%20Sharer%20-%20WordPress%20Plugin&description=Awesome%20WordPress%20Plugin%20helping%20you%20to%20add%20buttons%20at%20the%20beginning%20or%20the%20end%20of%20your%20WordPress%20contents%20easily&tags=WordPress,Social,Share,Buttons,Network,Twitter,Facebook,Linkedin&category=software)
 
 
 Les réseaux sociaux supportés :
@@ -184,6 +193,12 @@ Find my plugins at <a href="http://profiles.wordpress.org/creativejuiz/">http://
 
 
 == Changelog ==
+
+= 1.3.6 =
+* Some page admin improvements
+* **Fixes**
+ * Notice PHP removed (thanks to [Daniel Roch](http://seomix.fr))
+ * Some other improvements (thanks to [Julien Maury](http://tweetpressfr.github.io/blog/))
 
 = 1.3.5 =
 * Readme.txt updated
