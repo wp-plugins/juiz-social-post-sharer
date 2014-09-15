@@ -310,7 +310,7 @@ function juiz_sps_setting_radio_style_choice() {
 				</p>
 				<p class="juiz_sps_styles_options">
 					<input id="jsps_style_6" value="6" name="'.JUIZ_SPS_SETTING_NAME.'[juiz_sps_style]" type="radio" '.$n6.' />
-					<label for="jsps_style_6"><span class="juiz_sps_demo_styles"></span><br /><span class="juiz_sps_style_name">'. __('Black', JUIZ_SPS_LANG) . ' '.__('by', JUIZ_SPS_LANG).' <a href="http://fandia.p.ht" target="_blank">Fandia</a></span></label>
+					<label for="jsps_style_6"><span class="juiz_sps_demo_styles"></span><br /><span class="juiz_sps_style_name">'. __('Black', JUIZ_SPS_LANG) . ' '.__('by', JUIZ_SPS_LANG).' <a href="http://fandia.w.pw" target="_blank">Fandia</a></span></label>
 				</p>';
 	}
 }

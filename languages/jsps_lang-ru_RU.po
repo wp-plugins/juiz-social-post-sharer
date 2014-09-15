@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Juiz Social Post Sharer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-09 18:50+0100\n"
-"PO-Revision-Date: 2014-05-09 18:51+0100\n"
+"PO-Revision-Date: 2014-08-18 14:25+0500\n"
 "Last-Translator: Geoffrey <rikuasakura@hotmail.fr>\n"
 "Language-Team: Creativejuiz <support@creativejuiz.com>\n"
 "Language: ru_RU\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.7\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../admin/jsps-admin.inc.php:40 ../admin/jsps-admin.inc.php:60
@@ -85,11 +85,11 @@ msgstr "Дополнительные настройки"
 
 #: ../admin/jsps-admin.inc.php:203
 msgid "Show only social icon?"
-msgstr "Показывать только иконку?"
+msgstr "Показывать только иконки?"
 
 #: ../admin/jsps-admin.inc.php:203
 msgid "hide text, show it on mouse over or focus"
-msgstr "спрятать текст, показывется при наведении или нажатии мышью"
+msgstr "спрятать текст, появляется при наведении или нажатии мышью"
 
 #: ../admin/jsps-admin.inc.php:204
 msgid "Open links in a new window?"
@@ -102,20 +102,19 @@ msgstr "добавляется %s атрибут"
 
 #: ../admin/jsps-admin.inc.php:205
 msgid "Force Pinterest button sniffing all images of the page?"
-msgstr "Force Pinterest button sniffing all images of the page?"
+msgstr "Поиск всех изображений на странице?(Pinterest)"
 
 #: ../admin/jsps-admin.inc.php:205 ../admin/jsps-admin.inc.php:206
 msgid "need JavaScript"
-msgstr "нужен JavaScript"
+msgstr "необходим JavaScript"
 
 #: ../admin/jsps-admin.inc.php:206
 msgid "Display counter of sharing?"
 msgstr "Показывать кол-во лайков?"
 
 #: ../admin/jsps-admin.inc.php:207
-#, fuzzy
 msgid "For this counter, you want to display:"
-msgstr "Где вы хотите разместить кнопки?"
+msgstr "Как отображать счетчик лайков?"
 
 #: ../admin/jsps-admin.inc.php:208
 msgid "Write CSS code in HTML head?"
@@ -185,7 +184,7 @@ msgstr "Ник без \"@\""
 msgid ""
 "You can choose precisely the types of content that will benefit from the "
 "sharing buttons."
-msgstr "Вы можете выбрать именно те типы записей, где будет польза от кнопок."
+msgstr "Вы можете выбрать именно те типы записей, где кнопки будут полезны."
 
 #: ../admin/jsps-admin.inc.php:400
 #, php-format
@@ -206,7 +205,7 @@ msgstr "И сверху, и снизу"
 
 #: ../admin/jsps-admin.inc.php:425
 msgid "I'm a ninja, I want to use the shortcode only!"
-msgstr "Я хочу использовать только shortcode, только хардкор!"
+msgstr "Я хочу использовать только shortcode!"
 
 #: ../admin/jsps-admin.inc.php:435
 msgid ""
@@ -230,15 +229,15 @@ msgstr "Нет"
 
 #: ../admin/jsps-admin.inc.php:525
 msgid "Total &amp; Sub-totals"
-msgstr "Total &amp; Sub-totals"
+msgstr "Суммарно &amp; В отдельности"
 
 #: ../admin/jsps-admin.inc.php:528
 msgid "Only Total"
-msgstr "Only Total"
+msgstr "Только суммарно"
 
 #: ../admin/jsps-admin.inc.php:531
 msgid "Only Sub-totals"
-msgstr "Only Sub-totals"
+msgstr "Только в отдельности"
 
 #: ../admin/jsps-admin.inc.php:544
 msgid "This option will be enabled for a next version"
@@ -249,7 +248,7 @@ msgid ""
 "You can customize texts to display when visitors share your content by mail "
 "button"
 msgstr ""
-"Вы можете изменить текст, который будет отображаться в письме от кнопки mail"
+"Вы можете изменить текст, который будет отображаться в письме кнопки mail"
 
 #: ../admin/jsps-admin.inc.php:558
 #, php-format
@@ -351,9 +350,8 @@ msgid "Share this article on Weibo"
 msgstr "Поделиться в Weibo"
 
 #: ../juiz-social-post-sharer.php:264
-#, fuzzy
 msgid "Share this article on VKontakte"
-msgstr "Поделиться в Viadeo"
+msgstr "Поделиться в VKontakte"
 
 #: ../juiz-social-post-sharer.php:275
 msgid "Share this article with a friend (email)"
