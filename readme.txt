@@ -37,7 +37,7 @@ Social networks supported:
 
 Options plugin:
 
-* 7 graphic templates available
+* 8 graphic templates available
 * Choose from all available networks
 * Open links in a new window (deactivated by default)
 * Choose to display only the social network icon
@@ -104,7 +104,7 @@ Les réseaux sociaux supportés :
 
 Options du plugin :
 
-* 7 thèmes graphiques de base
+* 8 thèmes graphiques de base
 * Faites votre choix parmi tous les réseaux disponibles
 * Ouverture des liens dans une nouvelle fenêtre (désactivé par défaut)
 * Choix de n'afficher que l'icône du réseau social
